@@ -16,13 +16,14 @@
 #include "worms/bond_operator.hpp"
 #include "worms/chain_lattice.hpp"
 #include "worms/heisenberg_operator.hpp"
-#include "worms/observable.hpp"
 #include "worms/spacetime_point.hpp"
+#include "worms/version.hpp"
 #include "worms/weight.hpp"
 
 #include <bcl/markov.hpp>
-#include <bcl/st2010.hpp>
+#include "bcl/observable.hpp"
 #include <bcl/random_shuffle.hpp>
+#include <bcl/st2010.hpp>
 
 #include <vector>
 #include <boost/random.hpp>
@@ -60,7 +61,9 @@ void insert_wstart(int s, double t, std::vector<SPACETIME_POINT>& stpoints,
 }
 
 int main(int argc, char* argv[]) {
-  std::cout << "worms: a simple worm code\n";
+  std::cout << "worms: a simple worm code (release " WORMS_VERSION ")\n"
+            << "  Copyright (C) 2013 by Synge Todo <wistaria@comp-phys.org>\n"
+            << "  " WORMS_URL "\n\n";
   options opt(argc, argv, 16, 1.0);
   if (!opt.valid) std::exit(-1);
   double beta = 1 / opt.T;
@@ -76,9 +79,9 @@ int main(int argc, char* argv[]) {
   random01_t random01(engine);
 
   // observables
-  observable umag; // uniform magnetization
-  observable umag2; // uniform magnetization^2
-  observable smag2; // staggered magnetizetion^2
+  bcl::observable umag; // uniform magnetization
+  bcl::observable umag2; // uniform magnetization^2
+  bcl::observable smag2; // staggered magnetizetion^2
 
   // configuration
   std::vector<int> spins(opt.L, 0 /* all up */);

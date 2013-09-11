@@ -14,4 +14,6 @@
 
 #define WORMS_VERSION ""
 
+#define WORMS_URL "https://github.com/wistaria/worms"
+
 #endif // WORMS_VERSION_HPP
