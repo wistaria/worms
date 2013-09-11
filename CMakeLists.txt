@@ -7,6 +7,7 @@ find_package(BoostSrc)
 
 enable_testing()
 include(CTest)
+include(add_alps_test)
 
 include_directories(${PROJECT_SOURCE_DIR}/bcl)
 include_directories(${PROJECT_SOURCE_DIR})
@@ -14,4 +15,5 @@ include_directories(${Boost_ROOT_DIR})
 
 FOREACH(name worms)
   add_executable(${name} ${name}.cpp)
+  add_alps_test(${name})
 ENDFOREACH(name)
