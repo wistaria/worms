@@ -116,9 +116,8 @@ int main(int argc, char* argv[]) {
 
   for (int mcs = 0; mcs < (opt.therm + opt.sweeps); ++mcs) {
     // diagonal update
-    //// std::cout << "diagonal upadte\n";
-    double pstart = wdensity / (opt.L * lambda + wdensity);
-    expdist_t expdist(beta * (opt.L * lambda + wdensity));
+    double pstart = wdensity / (beta * opt.L * lambda + wdensity);
+    expdist_t expdist(beta * opt.L * lambda + wdensity);
     times.resize(0);
     double t = 0;
     while (t < 1) {
@@ -167,22 +166,20 @@ int main(int argc, char* argv[]) {
     bcl::random_shuffle(wstart.begin(), wstart.end(), random01);
 
     // worm update
-    //// std::cout << "worm update\n";
     for (std::vector<boost::tuple<int, int, double> >::iterator wsi = wstart.begin();
          wsi != wstart.end(); ++wsi) {
       int direc = 2 * random01();
       int site, stp;
       double time;
       boost::tie(site, stp, time) = *wsi;
-      int site_start = site;
       int stp_start = stp;
+      double time_start = time;
       wcount++;
       wlength += (direc == 0) ? time : -time;
       while (true) {
         stp = (direc == 0) ? stpoints[stp].prev() : stpoints[stp].next();
         if (stpoints[stp].at_operator()) {
           int bop = stpoints[stp].bond_operator();
-          //// std::cout << "at operator " << bop << std::endl;
           time = operators[bop].time();
           wlength += (direc == 0) ? -time : time;
           int ent = ((direc ^ 1) << 1) | stpoints[stp].leg();
@@ -195,14 +192,12 @@ int main(int argc, char* argv[]) {
           stp = (leg == 0) ? operators[bop].stp0() : operators[bop].stp1();
           wlength += (direc == 0) ? time : -time;
         } else if (stpoints[stp].at_origin()) {
-          //// std::cout << "at origin " << site << std::endl;
           spins[site] ^= 1;
           wlength += 1;
           time  = (direc == 0) ? 1 : 0;
         } else {
-          //// std::cout << "at starting point " << site << ' ' << stp << std::endl;
-          if (site == site_start && stp == stp_start) {
-            wlength += (direc == 0) ? -wsi->get<2>() : wsi->get<2>();
+          if (stp == stp_start) {
+            wlength += (direc == 0) ? -time_start : time_start;
             break;
           }
         }
@@ -225,14 +220,16 @@ int main(int argc, char* argv[]) {
       smag2 << ms * ms;
     }
     
-    if ((mcs > 0) && (mcs < opt.therm) && (mcs % (opt.therm / 4) == 0)) {
-      std::cout << "Info: worm average number is reset from " << wdensity;
-      wlength = wlength / wcount;
-      wdensity = (beta * opt.L / wlength);
-      wcount = 0;
-      wlength = 0;
-      std::cout << " to " << wdensity << " at MCS = " << mcs << std::endl;
+    if (mcs < opt.therm / 2) {
+      wdensity = opt.L / (wlength / wcount);
+      if (mcs == opt.therm / 4) {
+        wcount = 0;
+        wlength = 0;
+      }
     }
+    if (mcs == opt.therm / 2)
+      std::cout << "Info: average number worms per MCS is reset from " << opt.L << " to "
+                << wdensity << std::endl;
   }
 
   std::cout << "Uniform Magnetization     = "
