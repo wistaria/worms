@@ -1,0 +1,3 @@
+[submodule "bcl"]
+	path = bcl
+	url = git@github.com:cmsi/bcl.git
