@@ -9,6 +9,8 @@
 *
 *****************************************************************************/
 
+// #define CHECK_OPERATORS 1
+
 #include "options.hpp"
 #include "check.hpp"
 #include "worms/bond_operator.hpp"
@@ -28,32 +30,32 @@
 
 template<typename BOND_OPERATOR, typename SPACETIME_POINT>
 void insert_operator(int s0, int s1, int p, double t, std::vector<BOND_OPERATOR>& operators,
-                     std::vector<std::vector<SPACETIME_POINT> >& stpoints) {
+                     std::vector<SPACETIME_POINT>& stpoints) {
   int bindex = operators.size();
-  int s0index = stpoints[s0].size();
-  int s1index = stpoints[s1].size();
+  int s0index = stpoints.size();
+  int s1index = s0index + 1;
   operators.push_back(BOND_OPERATOR(s0, s1, s0index, s1index, p, t));
-  stpoints[s0].push_back(SPACETIME_POINT(s0index-1, 0, bindex, 0));
-  stpoints[s0][0].set_prev(s0index);
-  stpoints[s0][s0index-1].set_next(s0index);
-  stpoints[s1].push_back(SPACETIME_POINT(s1index-1, 0, bindex, 1));
-  stpoints[s1][0].set_prev(s1index);
-  stpoints[s1][s1index-1].set_next(s1index);
+  stpoints.push_back(SPACETIME_POINT(stpoints[s0].prev(), s0, bindex, 0));
+  stpoints[stpoints[s0].prev()].set_next(s0index);
+  stpoints[s0].set_prev(s0index);
+  stpoints.push_back(SPACETIME_POINT(stpoints[s1].prev(), s1, bindex, 1));
+  stpoints[stpoints[s1].prev()].set_next(s1index);
+  stpoints[s1].set_prev(s1index);
 }
 
 template<typename BOND_OPERATOR, typename SPACETIME_POINT>
 void insert_operator(BOND_OPERATOR const& bop, std::vector<BOND_OPERATOR>& operators,
-                     std::vector<std::vector<SPACETIME_POINT> >& stpoints) {
+                     std::vector<SPACETIME_POINT>& stpoints) {
   insert_operator(bop.site0(), bop.site1(), bop.state(), bop.time(), operators, stpoints);
 }
 
 template<typename SPACETIME_POINT>
-void insert_wstart(int s, double t, std::vector<std::vector<SPACETIME_POINT> >& stpoints,
+void insert_wstart(int s, double t, std::vector<SPACETIME_POINT>& stpoints,
                    std::vector<boost::tuple<int, int, double> >& wstart) {
-  int sindex = stpoints[s].size();
-  stpoints[s].push_back(SPACETIME_POINT::starting(sindex-1, 0));
-  stpoints[s][0].set_prev(sindex);
-  stpoints[s][sindex-1].set_next(sindex);
+  int sindex = stpoints.size();
+  stpoints.push_back(SPACETIME_POINT::starting(stpoints[s].prev(), s));
+  stpoints[stpoints[s].prev()].set_next(sindex);
+  stpoints[s].set_prev(sindex);
   wstart.push_back(boost::make_tuple(s, sindex, t));
 }
 
@@ -81,7 +83,7 @@ int main(int argc, char* argv[]) {
   // configuration
   std::vector<int> spins(opt.L, 0 /* all up */);
   std::vector<bond_operator> operators, operators_p;
-  std::vector<std::vector<spacetime_point> > stpoints(opt.L);
+  std::vector<spacetime_point> stpoints;
 
   // Hamiltonian operator
   heisenberg_operator op(opt.H);
@@ -114,6 +116,7 @@ int main(int argc, char* argv[]) {
 
   for (int mcs = 0; mcs < (opt.therm + opt.sweeps); ++mcs) {
     // diagonal update
+    //// std::cout << "diagonal upadte\n";
     double pstart = wdensity / (opt.L * lambda + wdensity);
     expdist_t expdist(beta * (opt.L * lambda + wdensity));
     times.resize(0);
@@ -126,13 +129,10 @@ int main(int argc, char* argv[]) {
     operators.resize(0);
     operators_p.push_back(bond_operator(0, 0, 0, 0, 0, 1)); // sentinel
     std::copy(spins.begin(), spins.end(), current.begin());
-    for (int s = 0; s < opt.L; ++s) {
-      stpoints[s].resize(0);
-      stpoints[s].push_back(spacetime_point::origin(s));
-    }
+    stpoints.resize(0);
+    for (int s = 0; s < opt.L; ++s) stpoints.push_back(spacetime_point::origin(s));
     wstart.resize(0);
-    check_operators(lattice, spins, operators);
-    check_spacetime(lattice, operators, stpoints);
+    check_operators(lattice, spins, operators, stpoints);
     std::vector<double>::iterator tmi = times.begin();
     for (std::vector<bond_operator>::iterator opi = operators_p.begin();
          opi != operators_p.end();) {
@@ -161,13 +161,13 @@ int main(int argc, char* argv[]) {
         ++opi;
       }
     }
-    check_operators(lattice, spins, operators);
-    check_spacetime(lattice, operators, stpoints);
+    check_operators(lattice, spins, operators, stpoints);
 
     // shuffle starting point of worms
     bcl::random_shuffle(wstart.begin(), wstart.end(), random01);
 
     // worm update
+    //// std::cout << "worm update\n";
     for (std::vector<boost::tuple<int, int, double> >::iterator wsi = wstart.begin();
          wsi != wstart.end(); ++wsi) {
       int direc = 2 * random01();
@@ -179,12 +179,13 @@ int main(int argc, char* argv[]) {
       wcount++;
       wlength += (direc == 0) ? time : -time;
       while (true) {
-        stp = (direc == 0) ? stpoints[site][stp].prev() : stpoints[site][stp].next();
-        if (stpoints[site][stp].at_operator()) {
-          int bop = stpoints[site][stp].bond_operator();
+        stp = (direc == 0) ? stpoints[stp].prev() : stpoints[stp].next();
+        if (stpoints[stp].at_operator()) {
+          int bop = stpoints[stp].bond_operator();
+          //// std::cout << "at operator " << bop << std::endl;
           time = operators[bop].time();
           wlength += (direc == 0) ? -time : time;
-          int ent = ((direc ^ 1) << 1) | stpoints[site][stp].leg();
+          int ent = ((direc ^ 1) << 1) | stpoints[stp].leg();
           operators[bop].flip_state(ent);
           int ext = markov[operators[bop].state()](ent, random01);
           int leg = ext & 1;
@@ -193,11 +194,13 @@ int main(int argc, char* argv[]) {
           site = (leg == 0) ? operators[bop].site0() : operators[bop].site1();
           stp = (leg == 0) ? operators[bop].stp0() : operators[bop].stp1();
           wlength += (direc == 0) ? time : -time;
-        } else if (stpoints[site][stp].at_origin()) {
+        } else if (stpoints[stp].at_origin()) {
+          //// std::cout << "at origin " << site << std::endl;
           spins[site] ^= 1;
           wlength += 1;
           time  = (direc == 0) ? 1 : 0;
-        } else { // spoints[site][stp].at_starting()
+        } else {
+          //// std::cout << "at starting point " << site << ' ' << stp << std::endl;
           if (site == site_start && stp == stp_start) {
             wlength += (direc == 0) ? -wsi->get<2>() : wsi->get<2>();
             break;
@@ -205,8 +208,7 @@ int main(int argc, char* argv[]) {
         }
       }
     }
-    check_operators(lattice, spins, operators);
-    check_spacetime(lattice, operators, stpoints);
+    check_operators(lattice, spins, operators, stpoints);
 
     // measurement of physical quantities
     if (mcs >= opt.therm) {
@@ -223,13 +225,13 @@ int main(int argc, char* argv[]) {
       smag2 << ms * ms;
     }
     
-    if ((wcount > 0) && (mcs < opt.therm) && (mcs % (opt.therm / 4) == 0)) {
+    if ((mcs > 0) && (mcs < opt.therm) && (mcs % (opt.therm / 4) == 0)) {
       std::cout << "Info: worm average number is reset from " << wdensity;
       wlength = wlength / wcount;
-      wdensity = (beta * opt.L / wlength) + 1;
+      wdensity = (beta * opt.L / wlength);
       wcount = 0;
       wlength = 0;
-      std::cout << " to " << wdensity << std::endl;
+      std::cout << " to " << wdensity << " at MCS = " << mcs << std::endl;
     }
   }
 
