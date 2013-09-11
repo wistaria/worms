@@ -26,7 +26,7 @@ public:
   bool at_staring() const { return bop_ == -2; }
   void set_prev(int p) { prev_ = p; }
   void set_next(int n) { next_ = n; }
-  static spacetime_point origin(int s) { return spacetime_point(s, s, -1, 0); }
+  static spacetime_point origin(int s) { return spacetime_point(0, 0, -1, 0); }
   static spacetime_point starting(int p, int n) { return spacetime_point(p, n, -2, 0); }
 private:
   int prev_, next_;

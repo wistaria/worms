@@ -10,6 +10,7 @@
 *****************************************************************************/
 
 #include "options.hpp"
+#include "check.hpp"
 #include "worms/bond_operator.hpp"
 #include "worms/chain_lattice.hpp"
 #include "worms/heisenberg_operator.hpp"
@@ -82,7 +83,6 @@ int main(int argc, char* argv[]) {
   std::vector<bond_operator> operators, operators_p;
   std::vector<std::vector<spacetime_point> > stpoints(opt.L);
 
-
   // Hamiltonian operator
   heisenberg_operator op(opt.H);
   double offset = 0; // >= 0
@@ -113,9 +113,7 @@ int main(int argc, char* argv[]) {
   std::vector<int> current(opt.L);
 
   for (int mcs = 0; mcs < (opt.therm + opt.sweeps); ++mcs) {
-    //
     // diagonal update
-    //
     double pstart = wdensity / (opt.L * lambda + wdensity);
     expdist_t expdist(beta * (opt.L * lambda + wdensity));
     times.resize(0);
@@ -126,12 +124,15 @@ int main(int argc, char* argv[]) {
     } // a sentinel (t >= 1) will be appended
     std::swap(operators, operators_p);
     operators.resize(0);
+    operators_p.push_back(bond_operator(0, 0, 0, 0, 0, 1)); // sentinel
     std::copy(spins.begin(), spins.end(), current.begin());
     for (int s = 0; s < opt.L; ++s) {
       stpoints[s].resize(0);
       stpoints[s].push_back(spacetime_point::origin(s));
     }
     wstart.resize(0);
+    check_operators(lattice, spins, operators);
+    check_spacetime(lattice, operators, stpoints);
     std::vector<double>::iterator tmi = times.begin();
     for (std::vector<bond_operator>::iterator opi = operators_p.begin();
          opi != operators_p.end();) {
@@ -146,35 +147,29 @@ int main(int argc, char* argv[]) {
           int s0 = lattice.source(b);
           int s1 = lattice.target(b);
           int u = spin_state::c2u(current[s0], current[s1]);
-          if (random01() < accept[u]) {
+          if (random01() < accept[u])
             insert_operator(s0, s1, spin_state::u2p(u, u), *tmi, operators, stpoints);
-            ++tmi;
-          } else {
-            ++tmi;
-            continue;
-          }
         }
+        ++tmi;
       } else {
-        if (opi->is_diagonal()) {
-          // remove diagonal operator
-          ++opi;
-          continue;
-        } else {
+        if (opi->is_offdiagonal()) {
           // keep offdiagonal operator
           insert_operator(*opi, operators, stpoints);
           current[opi->site0()] = spin_state::p2c(opi->state(), 2);
           current[opi->site1()] = spin_state::p2c(opi->state(), 3);
-          ++opi;
         }
+        ++opi;
       }
     }
+    check_operators(lattice, spins, operators);
+    check_spacetime(lattice, operators, stpoints);
 
     // shuffle starting point of worms
     bcl::random_shuffle(wstart.begin(), wstart.end(), random01);
 
     // worm update
     for (std::vector<boost::tuple<int, int, double> >::iterator wsi = wstart.begin();
-         wsi != wstart.end();) {
+         wsi != wstart.end(); ++wsi) {
       int direc = 2 * random01();
       int site, stp;
       double time;
@@ -189,7 +184,7 @@ int main(int argc, char* argv[]) {
           int bop = stpoints[site][stp].bond_operator();
           time = operators[bop].time();
           wlength += (direc == 0) ? -time : time;
-          int ent = (direc << 1) | stpoints[site][stp].leg();
+          int ent = ((direc ^ 1) << 1) | stpoints[site][stp].leg();
           operators[bop].flip_state(ent);
           int ext = markov[operators[bop].state()](ent, random01);
           int leg = ext & 1;
@@ -198,7 +193,7 @@ int main(int argc, char* argv[]) {
           site = (leg == 0) ? operators[bop].site0() : operators[bop].site1();
           stp = (leg == 0) ? operators[bop].stp0() : operators[bop].stp1();
           wlength += (direc == 0) ? time : -time;
-         } else if (stpoints[site][stp].at_origin()) {
+        } else if (stpoints[site][stp].at_origin()) {
           spins[site] ^= 1;
           wlength += 1;
           time  = (direc == 0) ? 1 : 0;
@@ -210,6 +205,8 @@ int main(int argc, char* argv[]) {
         }
       }
     }
+    check_operators(lattice, spins, operators);
+    check_spacetime(lattice, operators, stpoints);
 
     // measurement of physical quantities
     if (mcs >= opt.therm) {
