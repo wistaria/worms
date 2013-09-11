@@ -13,15 +13,15 @@ antiferromagnetic Heisenberg chain in a longitudinal magnetic field.
 
 ## Compilation
 
-        cmake .
-	make
-	make test
+    cmake .
+    make
+    make test
 
 ## Command line options
 
  Please see the output of
 
-        ./worms -h
+    ./worms -h
 
 ## Release Note
 
