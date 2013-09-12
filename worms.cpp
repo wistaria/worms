@@ -9,56 +9,22 @@
 *
 *****************************************************************************/
 
-// #define CHECK_OPERATORS 1
+#ifndef NDEBUG
+# define CHECK_OPERATORS 1
+#endif
 
 #include "options.hpp"
-#include "check.hpp"
-#include "worms/bond_operator.hpp"
+#include "worms/version.hpp"
 #include "worms/chain_lattice.hpp"
 #include "worms/heisenberg_operator.hpp"
-#include "worms/spacetime_point.hpp"
-#include "worms/version.hpp"
 #include "worms/weight.hpp"
+#include "worms/operations.hpp"
 
-#include <bcl/markov.hpp>
-#include "bcl/observable.hpp"
-#include <bcl/random_shuffle.hpp>
-#include <bcl/st2010.hpp>
+#include <bcl.hpp>
 
 #include <vector>
 #include <boost/random.hpp>
 #include <boost/tuple/tuple.hpp>
-
-template<typename BOND_OPERATOR, typename SPACETIME_POINT>
-void insert_operator(int s0, int s1, int p, double t, std::vector<BOND_OPERATOR>& operators,
-                     std::vector<SPACETIME_POINT>& stpoints) {
-  int bindex = operators.size();
-  int s0index = stpoints.size();
-  int s1index = s0index + 1;
-  operators.push_back(BOND_OPERATOR(s0, s1, s0index, s1index, p, t));
-  stpoints.push_back(SPACETIME_POINT(stpoints[s0].prev(), s0, bindex, 0));
-  stpoints[stpoints[s0].prev()].set_next(s0index);
-  stpoints[s0].set_prev(s0index);
-  stpoints.push_back(SPACETIME_POINT(stpoints[s1].prev(), s1, bindex, 1));
-  stpoints[stpoints[s1].prev()].set_next(s1index);
-  stpoints[s1].set_prev(s1index);
-}
-
-template<typename BOND_OPERATOR, typename SPACETIME_POINT>
-void insert_operator(BOND_OPERATOR const& bop, std::vector<BOND_OPERATOR>& operators,
-                     std::vector<SPACETIME_POINT>& stpoints) {
-  insert_operator(bop.site0(), bop.site1(), bop.state(), bop.time(), operators, stpoints);
-}
-
-template<typename SPACETIME_POINT>
-void insert_wstart(int s, double t, std::vector<SPACETIME_POINT>& stpoints,
-                   std::vector<boost::tuple<int, int, double> >& wstart) {
-  int sindex = stpoints.size();
-  stpoints.push_back(SPACETIME_POINT::starting(stpoints[s].prev(), s));
-  stpoints[stpoints[s].prev()].set_next(sindex);
-  stpoints[s].set_prev(sindex);
-  wstart.push_back(boost::make_tuple(s, sindex, t));
-}
 
 int main(int argc, char* argv[]) {
   std::cout << "worms: a simple worm code (release " WORMS_VERSION ")\n"
@@ -142,7 +108,7 @@ int main(int argc, char* argv[]) {
         if (random01() < pstart) {
           // insert worm starting point
           int s = static_cast<int>(opt.L * random01());
-          insert_wstart(s, *tmi, stpoints, wstart);
+          append_wstart(s, *tmi, stpoints, wstart);
         } else {
           // insert diagonal operator
           int b = static_cast<int>(opt.L * random01());
@@ -150,13 +116,13 @@ int main(int argc, char* argv[]) {
           int s1 = lattice.target(b);
           int u = spin_state::c2u(current[s0], current[s1]);
           if (random01() < accept[u])
-            insert_operator(s0, s1, spin_state::u2p(u, u), *tmi, operators, stpoints);
+            append_operator(s0, s1, spin_state::u2p(u, u), *tmi, operators, stpoints);
         }
         ++tmi;
       } else {
         if (opi->is_offdiagonal()) {
           // keep offdiagonal operator
-          insert_operator(*opi, operators, stpoints);
+          append_operator(*opi, operators, stpoints);
           current[opi->site0()] = spin_state::p2c(opi->state(), 2);
           current[opi->site1()] = spin_state::p2c(opi->state(), 3);
         }
