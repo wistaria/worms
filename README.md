@@ -14,6 +14,9 @@ antiferromagnetic Heisenberg chain in a longitudinal magnetic field.
 ## Compilation
 
     cmake .
+
+You have to specify the path to the Boost include files by using -DBoost_ROOT_DIR option, if you have extracted the Boost in a non-standard place.
+
     make
     make test
 
