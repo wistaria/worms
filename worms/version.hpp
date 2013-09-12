@@ -12,7 +12,7 @@
 #ifndef WORMS_VERSION_HPP
 #define WORMS_VERSION_HPP
 
-#define WORMS_VERSION ""
+#define WORMS_VERSION "1.0"
 
 #define WORMS_URL "https://github.com/wistaria/worms"
 

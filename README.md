@@ -28,7 +28,7 @@ You have to specify the path to the Boost include files by using -DBoost_ROOT_DI
 
 ## Release Note
 
- - Release 0.1 (2013/09/12)
+ - Release 1.0 (2013/09/12)
      * Initial version
 
 ## References
