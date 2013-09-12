@@ -24,10 +24,11 @@
 
 #include <vector>
 #include <boost/random.hpp>
+#include <boost/timer.hpp>
 #include <boost/tuple/tuple.hpp>
 
 int main(int argc, char* argv[]) {
-  std::cout << "worms: a simple worm code (release " WORMS_VERSION ")\n"
+  std::cerr << "worms: a simple worm code (release " WORMS_VERSION ")\n"
             << "  Copyright (C) 2013 by Synge Todo <wistaria@comp-phys.org>\n"
             << "  " WORMS_URL "\n\n";
   options opt(argc, argv, 16, 1.0);
@@ -83,6 +84,7 @@ int main(int argc, char* argv[]) {
   std::vector<double> times;
   std::vector<int> current(opt.L);
 
+  boost::timer tm;
   for (int mcs = 0; mcs < (opt.therm + opt.sweeps); ++mcs) {
     // diagonal update
     double pstart = wdensity / (beta * opt.L * lambda + wdensity);
@@ -198,9 +200,12 @@ int main(int argc, char* argv[]) {
     }
     if (mcs == opt.therm / 2)
       std::cout << "Info: average number worms per MCS is reset from " << opt.L << " to "
-                << wdensity << std::endl;
+                << wdensity << "\n\n";
   }
 
+  double elapsed = tm.elapsed();
+  std::clog << "Elapsed time = " << elapsed << " sec\n"
+            << "Speed = " << (opt.therm + opt.sweeps) / elapsed << " MCS/sec\n";
   std::cout << "Uniform Magnetization     = "
             << umag.mean() << " +- " << umag.error() << std::endl
             << "Uniform Magnetization^2   = "
