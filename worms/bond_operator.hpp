@@ -41,6 +41,7 @@ private:
 
 std::ostream& operator<<(std::ostream& os, bond_operator const& op) {
   op.print(os);
+  return os;
 }
   
 #endif // BOND_OPERATOR_HPP
