@@ -47,6 +47,7 @@ int main(int argc, char* argv[]) {
   random01_t random01(engine);
 
   // observables
+  bcl::observable ene; // energy density
   bcl::observable umag; // uniform magnetization
   bcl::observable umag2; // uniform magnetization^2
   bcl::observable smag2; // staggered magnetizetion^2
@@ -180,6 +181,7 @@ int main(int argc, char* argv[]) {
 
     // measurement of physical quantities
     if (mcs >= opt.therm) {
+      ene << (lattice.num_bonds() * wt.offset() - operators.size() / beta) / lattice.num_sites();
       double mu = 0;
       double ms = 0;
       for (int s = 0; s < opt.L; ++s) {
@@ -208,7 +210,9 @@ int main(int argc, char* argv[]) {
   double elapsed = tm.elapsed();
   std::clog << "Elapsed time = " << elapsed << " sec\n"
             << "Speed = " << (opt.therm + opt.sweeps) / elapsed << " MCS/sec\n";
-  std::cout << "Uniform Magnetization     = "
+  std::cout << "Energy Density            = "
+            << ene.mean() << " +- " << ene.error() << std::endl
+            << "Uniform Magnetization     = "
             << umag.mean() << " +- " << umag.error() << std::endl
             << "Uniform Magnetization^2   = "
             << umag2.mean() << " +- " << umag2.error() << std::endl

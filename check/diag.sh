@@ -43,6 +43,9 @@ ALGORITHM = "diagonalization"
 { h = 3.0 }
 EOF
 
+echo "$HEADER" > diag-ene.dat
+cat diag.dat | awk '$1=="h" { h=$3 } $1=="Energy" && $2=="Density:" {print h, $3}' | sed 's/;//g' >> diag-ene.dat
+
 echo "$HEADER" > diag-mag.dat
 cat diag.dat | awk '$1=="h" { h=$3 } $1=="Magnetization" && $2=="Density:" {print h, $3}' | sed 's/;//g' >> diag-mag.dat
 

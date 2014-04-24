@@ -7,6 +7,9 @@ H="0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1
 
 (for h in $H; do $PROG -L 4 -T 0.1 -H $h; done) > worms.dat
 
+echo "$HEADER" > worms-ene.dat
+cat worms.dat | awk '$1=="Magnetic" { h=$4 } $1=="Energy" && $2=="Density" {print h, $4, $6}' >> worms-ene.dat
+
 echo "$HEADER" > worms-mag.dat
 cat worms.dat | awk '$1=="Magnetic" { h=$4 } $1=="Uniform" && $2=="Magnetization" {print h, $4, $6}' >> worms-mag.dat
 

@@ -8,9 +8,9 @@ ALGORITHM = diagonalization;
 h = 0.0;
 DIR_NAME = .;
 BASE_NAME = task1;
-SEED = 1398349758;
-WORKER_SEED = 1398349758;
-DISORDER_SEED = 1398349758;
+SEED = 1398351652;
+WORKER_SEED = 1398351652;
+DISORDER_SEED = 1398351652;
 start diagonalization... done
 Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
 [results]
@@ -67,9 +67,9 @@ ALGORITHM = diagonalization;
 h = 0.1;
 DIR_NAME = .;
 BASE_NAME = task2;
-SEED = 1398349758;
-WORKER_SEED = 1398349758;
-DISORDER_SEED = 1398349758;
+SEED = 1398351652;
+WORKER_SEED = 1398351652;
+DISORDER_SEED = 1398351652;
 start diagonalization... done
 Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
 [results]
@@ -126,9 +126,9 @@ ALGORITHM = diagonalization;
 h = 0.2;
 DIR_NAME = .;
 BASE_NAME = task3;
-SEED = 1398349758;
-WORKER_SEED = 1398349758;
-DISORDER_SEED = 1398349758;
+SEED = 1398351652;
+WORKER_SEED = 1398351652;
+DISORDER_SEED = 1398351652;
 start diagonalization... done
 Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
 [results]
@@ -185,9 +185,9 @@ ALGORITHM = diagonalization;
 h = 0.3;
 DIR_NAME = .;
 BASE_NAME = task4;
-SEED = 1398349759;
-WORKER_SEED = 1398349759;
-DISORDER_SEED = 1398349759;
+SEED = 1398351653;
+WORKER_SEED = 1398351653;
+DISORDER_SEED = 1398351653;
 start diagonalization... done
 Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
 [results]
@@ -244,9 +244,9 @@ ALGORITHM = diagonalization;
 h = 0.4;
 DIR_NAME = .;
 BASE_NAME = task5;
-SEED = 1398349759;
-WORKER_SEED = 1398349759;
-DISORDER_SEED = 1398349759;
+SEED = 1398351653;
+WORKER_SEED = 1398351653;
+DISORDER_SEED = 1398351653;
 start diagonalization... done
 Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
 [results]
@@ -303,9 +303,9 @@ ALGORITHM = diagonalization;
 h = 0.5;
 DIR_NAME = .;
 BASE_NAME = task6;
-SEED = 1398349759;
-WORKER_SEED = 1398349759;
-DISORDER_SEED = 1398349759;
+SEED = 1398351654;
+WORKER_SEED = 1398351654;
+DISORDER_SEED = 1398351654;
 start diagonalization... done
 Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
 [results]
@@ -362,9 +362,9 @@ ALGORITHM = diagonalization;
 h = 0.6;
 DIR_NAME = .;
 BASE_NAME = task7;
-SEED = 1398349760;
-WORKER_SEED = 1398349760;
-DISORDER_SEED = 1398349760;
+SEED = 1398351654;
+WORKER_SEED = 1398351654;
+DISORDER_SEED = 1398351654;
 start diagonalization... done
 Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
 [results]
@@ -421,9 +421,9 @@ ALGORITHM = diagonalization;
 h = 0.7;
 DIR_NAME = .;
 BASE_NAME = task8;
-SEED = 1398349760;
-WORKER_SEED = 1398349760;
-DISORDER_SEED = 1398349760;
+SEED = 1398351654;
+WORKER_SEED = 1398351654;
+DISORDER_SEED = 1398351654;
 start diagonalization... done
 Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
 [results]
@@ -480,9 +480,9 @@ ALGORITHM = diagonalization;
 h = 0.8;
 DIR_NAME = .;
 BASE_NAME = task9;
-SEED = 1398349761;
-WORKER_SEED = 1398349761;
-DISORDER_SEED = 1398349761;
+SEED = 1398351655;
+WORKER_SEED = 1398351655;
+DISORDER_SEED = 1398351655;
 start diagonalization... done
 Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
 [results]
@@ -539,9 +539,9 @@ ALGORITHM = diagonalization;
 h = 0.9;
 DIR_NAME = .;
 BASE_NAME = task10;
-SEED = 1398349761;
-WORKER_SEED = 1398349761;
-DISORDER_SEED = 1398349761;
+SEED = 1398351655;
+WORKER_SEED = 1398351655;
+DISORDER_SEED = 1398351655;
 start diagonalization... done
 Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
 [results]
@@ -598,9 +598,9 @@ ALGORITHM = diagonalization;
 h = 1.0;
 DIR_NAME = .;
 BASE_NAME = task11;
-SEED = 1398349761;
-WORKER_SEED = 1398349761;
-DISORDER_SEED = 1398349761;
+SEED = 1398351656;
+WORKER_SEED = 1398351656;
+DISORDER_SEED = 1398351656;
 start diagonalization... done
 Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
 [results]
@@ -657,9 +657,9 @@ ALGORITHM = diagonalization;
 h = 1.1;
 DIR_NAME = .;
 BASE_NAME = task12;
-SEED = 1398349762;
-WORKER_SEED = 1398349762;
-DISORDER_SEED = 1398349762;
+SEED = 1398351656;
+WORKER_SEED = 1398351656;
+DISORDER_SEED = 1398351656;
 start diagonalization... done
 Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
 [results]
@@ -716,9 +716,9 @@ ALGORITHM = diagonalization;
 h = 1.2;
 DIR_NAME = .;
 BASE_NAME = task13;
-SEED = 1398349762;
-WORKER_SEED = 1398349762;
-DISORDER_SEED = 1398349762;
+SEED = 1398351656;
+WORKER_SEED = 1398351656;
+DISORDER_SEED = 1398351656;
 start diagonalization... done
 Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
 [results]
@@ -775,9 +775,9 @@ ALGORITHM = diagonalization;
 h = 1.3;
 DIR_NAME = .;
 BASE_NAME = task14;
-SEED = 1398349763;
-WORKER_SEED = 1398349763;
-DISORDER_SEED = 1398349763;
+SEED = 1398351657;
+WORKER_SEED = 1398351657;
+DISORDER_SEED = 1398351657;
 start diagonalization... done
 Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
 [results]
@@ -834,9 +834,9 @@ ALGORITHM = diagonalization;
 h = 1.4;
 DIR_NAME = .;
 BASE_NAME = task15;
-SEED = 1398349763;
-WORKER_SEED = 1398349763;
-DISORDER_SEED = 1398349763;
+SEED = 1398351657;
+WORKER_SEED = 1398351657;
+DISORDER_SEED = 1398351657;
 start diagonalization... done
 Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
 [results]
@@ -893,9 +893,9 @@ ALGORITHM = diagonalization;
 h = 1.5;
 DIR_NAME = .;
 BASE_NAME = task16;
-SEED = 1398349763;
-WORKER_SEED = 1398349763;
-DISORDER_SEED = 1398349763;
+SEED = 1398351657;
+WORKER_SEED = 1398351657;
+DISORDER_SEED = 1398351657;
 start diagonalization... done
 Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
 [results]
@@ -952,9 +952,9 @@ ALGORITHM = diagonalization;
 h = 1.6;
 DIR_NAME = .;
 BASE_NAME = task17;
-SEED = 1398349764;
-WORKER_SEED = 1398349764;
-DISORDER_SEED = 1398349764;
+SEED = 1398351658;
+WORKER_SEED = 1398351658;
+DISORDER_SEED = 1398351658;
 start diagonalization... done
 Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
 [results]
@@ -1011,9 +1011,9 @@ ALGORITHM = diagonalization;
 h = 1.7;
 DIR_NAME = .;
 BASE_NAME = task18;
-SEED = 1398349764;
-WORKER_SEED = 1398349764;
-DISORDER_SEED = 1398349764;
+SEED = 1398351658;
+WORKER_SEED = 1398351658;
+DISORDER_SEED = 1398351658;
 start diagonalization... done
 Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
 [results]
@@ -1070,9 +1070,9 @@ ALGORITHM = diagonalization;
 h = 1.8;
 DIR_NAME = .;
 BASE_NAME = task19;
-SEED = 1398349764;
-WORKER_SEED = 1398349764;
-DISORDER_SEED = 1398349764;
+SEED = 1398351659;
+WORKER_SEED = 1398351659;
+DISORDER_SEED = 1398351659;
 start diagonalization... done
 Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
 [results]
@@ -1129,9 +1129,9 @@ ALGORITHM = diagonalization;
 h = 1.9;
 DIR_NAME = .;
 BASE_NAME = task20;
-SEED = 1398349765;
-WORKER_SEED = 1398349765;
-DISORDER_SEED = 1398349765;
+SEED = 1398351659;
+WORKER_SEED = 1398351659;
+DISORDER_SEED = 1398351659;
 start diagonalization... done
 Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
 [results]
@@ -1188,9 +1188,9 @@ ALGORITHM = diagonalization;
 h = 2.0;
 DIR_NAME = .;
 BASE_NAME = task21;
-SEED = 1398349765;
-WORKER_SEED = 1398349765;
-DISORDER_SEED = 1398349765;
+SEED = 1398351659;
+WORKER_SEED = 1398351659;
+DISORDER_SEED = 1398351659;
 start diagonalization... done
 Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
 [results]
@@ -1247,9 +1247,9 @@ ALGORITHM = diagonalization;
 h = 2.1;
 DIR_NAME = .;
 BASE_NAME = task22;
-SEED = 1398349766;
-WORKER_SEED = 1398349766;
-DISORDER_SEED = 1398349766;
+SEED = 1398351660;
+WORKER_SEED = 1398351660;
+DISORDER_SEED = 1398351660;
 start diagonalization... done
 Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
 [results]
@@ -1306,9 +1306,9 @@ ALGORITHM = diagonalization;
 h = 2.2;
 DIR_NAME = .;
 BASE_NAME = task23;
-SEED = 1398349766;
-WORKER_SEED = 1398349766;
-DISORDER_SEED = 1398349766;
+SEED = 1398351660;
+WORKER_SEED = 1398351660;
+DISORDER_SEED = 1398351660;
 start diagonalization... done
 Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
 [results]
@@ -1365,9 +1365,9 @@ ALGORITHM = diagonalization;
 h = 2.3;
 DIR_NAME = .;
 BASE_NAME = task24;
-SEED = 1398349766;
-WORKER_SEED = 1398349766;
-DISORDER_SEED = 1398349766;
+SEED = 1398351661;
+WORKER_SEED = 1398351661;
+DISORDER_SEED = 1398351661;
 start diagonalization... done
 Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
 [results]
@@ -1424,9 +1424,9 @@ ALGORITHM = diagonalization;
 h = 2.4;
 DIR_NAME = .;
 BASE_NAME = task25;
-SEED = 1398349767;
-WORKER_SEED = 1398349767;
-DISORDER_SEED = 1398349767;
+SEED = 1398351661;
+WORKER_SEED = 1398351661;
+DISORDER_SEED = 1398351661;
 start diagonalization... done
 Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
 [results]
@@ -1483,9 +1483,9 @@ ALGORITHM = diagonalization;
 h = 2.5;
 DIR_NAME = .;
 BASE_NAME = task26;
-SEED = 1398349767;
-WORKER_SEED = 1398349767;
-DISORDER_SEED = 1398349767;
+SEED = 1398351661;
+WORKER_SEED = 1398351661;
+DISORDER_SEED = 1398351661;
 start diagonalization... done
 Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
 [results]
@@ -1542,9 +1542,9 @@ ALGORITHM = diagonalization;
 h = 2.6;
 DIR_NAME = .;
 BASE_NAME = task27;
-SEED = 1398349768;
-WORKER_SEED = 1398349768;
-DISORDER_SEED = 1398349768;
+SEED = 1398351662;
+WORKER_SEED = 1398351662;
+DISORDER_SEED = 1398351662;
 start diagonalization... done
 Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
 [results]
@@ -1601,9 +1601,9 @@ ALGORITHM = diagonalization;
 h = 2.7;
 DIR_NAME = .;
 BASE_NAME = task28;
-SEED = 1398349768;
-WORKER_SEED = 1398349768;
-DISORDER_SEED = 1398349768;
+SEED = 1398351662;
+WORKER_SEED = 1398351662;
+DISORDER_SEED = 1398351662;
 start diagonalization... done
 Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
 [results]
@@ -1660,9 +1660,9 @@ ALGORITHM = diagonalization;
 h = 2.8;
 DIR_NAME = .;
 BASE_NAME = task29;
-SEED = 1398349768;
-WORKER_SEED = 1398349768;
-DISORDER_SEED = 1398349768;
+SEED = 1398351662;
+WORKER_SEED = 1398351662;
+DISORDER_SEED = 1398351662;
 start diagonalization... done
 Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
 [results]
@@ -1719,9 +1719,9 @@ ALGORITHM = diagonalization;
 h = 2.9;
 DIR_NAME = .;
 BASE_NAME = task30;
-SEED = 1398349769;
-WORKER_SEED = 1398349769;
-DISORDER_SEED = 1398349769;
+SEED = 1398351663;
+WORKER_SEED = 1398351663;
+DISORDER_SEED = 1398351663;
 start diagonalization... done
 Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
 [results]
@@ -1778,9 +1778,9 @@ ALGORITHM = diagonalization;
 h = 3.0;
 DIR_NAME = .;
 BASE_NAME = task31;
-SEED = 1398349769;
-WORKER_SEED = 1398349769;
-DISORDER_SEED = 1398349769;
+SEED = 1398351663;
+WORKER_SEED = 1398351663;
+DISORDER_SEED = 1398351663;
 start diagonalization... done
 Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
 [results]
