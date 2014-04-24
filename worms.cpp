@@ -17,8 +17,9 @@
 #include "worms/version.hpp"
 #include "worms/chain_lattice.hpp"
 #include "worms/heisenberg_operator.hpp"
-#include "worms/weight.hpp"
 #include "worms/operations.hpp"
+#include "worms/weight.hpp"
+#include "worms/outgoing_weight.hpp"
 
 #include <bcl.hpp>
 
@@ -56,21 +57,22 @@ int main(int argc, char* argv[]) {
   std::vector<spacetime_point> stpoints;
 
   // Hamiltonian operator
-  heisenberg_operator op(opt.H);
+  heisenberg_operator op(opt.H, /* coordination number = */ 2);
   double offset = 0; // >= 0
+  weight wt(op, offset);
 
   // table for diagonal update
-  double lambda = (op.max_diagonal() - op.min_diagonal() + offset);
+  double lambda = wt.max_diagonal_weight();
   std::vector<double> accept(4);
   for (int c0 = 0; c0 < 2; ++c0)
     for (int c1 = 0; c1 < 2; ++c1)
-      accept[spin_state::c2u(c0, c1)] = (op.max_diagonal() - op(c0, c1, c0, c1) + offset) / lambda;
+      accept[spin_state::c2u(c0, c1)] = wt[spin_state::c2p(c0, c1, c0, c1)] / lambda;
 
   // table for worm update
-  weight wt(op, offset);
+  outgoing_weight ogwt(wt);
   typedef bcl::markov<random01_t> markov_t;
   std::vector<markov_t> markov;
-  for (int c = 0; c < 16; ++c) markov.push_back(markov_t(bcl::st2010(), wt[c]));
+  for (int c = 0; c < 16; ++c) markov.push_back(markov_t(bcl::st2010(), ogwt[c]));
 
   // weight for worm insertion
   double wdensity = opt.L;

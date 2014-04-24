@@ -2,7 +2,7 @@
 *
 * worms: a simple worm code
 *
-* Copyright (C) 2013 by Synge Todo <wistaria@comp-phys.org>
+* Copyright (C) 2013-2014 by Synge Todo <wistaria@comp-phys.org>
 *
 * Distributed under the Boost Software License, Version 1.0. (See accompanying
 * file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -18,11 +18,11 @@
 
 class heisenberg_operator {
 public:
-  heisenberg_operator(double h) : elements_(16, 0) {
-    elements_[spin_state::c2p(0, 0, 0, 0)] = 0.25 - h;
+  heisenberg_operator(double h, int coord_num) : elements_(16, 0) {
+    elements_[spin_state::c2p(0, 0, 0, 0)] = 0.25 - h / coord_num;
     elements_[spin_state::c2p(0, 1, 0, 1)] = -0.25;
     elements_[spin_state::c2p(1, 0, 1, 0)] = -0.25;
-    elements_[spin_state::c2p(1, 1, 1, 1)] = 0.25 + h;
+    elements_[spin_state::c2p(1, 1, 1, 1)] = 0.25 + h / coord_num;
     elements_[spin_state::c2p(0, 1, 1, 0)] = -0.5;
     elements_[spin_state::c2p(1, 0, 0, 1)] = -0.5;
   }

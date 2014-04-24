@@ -9,21 +9,9 @@
 #
 ##############################################################################
 
-cmake_minimum_required(VERSION 2.8.0 FATAL_ERROR)
-project(worms)
-
-list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/config)
-
-find_package(BoostSrc)
-include_directories(${Boost_ROOT_DIR})
-include_directories(${PROJECT_SOURCE_DIR})
-
-enable_testing()
-include(CTest)
-include(add_alps_test)
-add_subdirectory(test)
-
-FOREACH(name worms)
+set(TESTS outgoing_weight weight)
+foreach(name ${TESTS})
   add_executable(${name} ${name}.cpp)
-  add_alps_test(${name})
-ENDFOREACH(name)
+  add_test(${name} ${name})
+endforeach(name)
+unset(TESTS)
