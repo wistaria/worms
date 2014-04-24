@@ -1,12 +1,14 @@
 #!/bin/sh
 
-echo '# Magnetization density of HAF chain with L = 4 and T = 0.25'
-cat << EOF | ./loop | awk '$1=="h" { h=$3 } $1=="Magnetization" && $2=="Density:" {print h, $3}' | sed 's/;//g'
+PROG="$1"
+HEADER="# Magnetization density of HAF chain with L = 4 and T = 0.1"
+
+cat << EOF | $PROG > diag.dat
 LATTICE = "chain lattice"
 MODEL   = "spin"
 L = 4
 J = 1
-T = 0.25
+T = 0.1
 ALGORITHM = "diagonalization"
 { h = 0.0 }
 { h = 0.1 }
@@ -39,14 +41,13 @@ ALGORITHM = "diagonalization"
 { h = 2.8 }
 { h = 2.9 }
 { h = 3.0 }
-{ h = 3.1 }
-{ h = 3.2 }
-{ h = 3.3 }
-{ h = 3.4 }
-{ h = 3.5 }
-{ h = 3.6 }
-{ h = 3.7 }
-{ h = 3.8 }
-{ h = 3.9 }
-{ h = 4.0 }
 EOF
+
+echo "$HEADER" > diag-mag.dat
+cat diag.dat | awk '$1=="h" { h=$3 } $1=="Magnetization" && $2=="Density:" {print h, $3}' | sed 's/;//g' >> diag-mag.dat
+
+echo "$HEADER" > diag-mag2.dat
+cat diag.dat | awk '$1=="h" { h=$3 } $1=="Magnetization" && $2=="Density^2:" {print h, $3}' | sed 's/;//g' >> diag-mag2.dat
+
+echo "$HEADER" > diag-smag2.dat
+cat diag.dat | awk '$1=="h" { h=$3 } $1=="Staggered" && $2=="Magnetization" && $3=="Density^2:" {print h, $4}' | sed 's/;//g' >> diag-smag2.dat

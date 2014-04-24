@@ -1,42 +1,1829 @@
-# Magnetization density of HAF chain with L = 4 and T = 0.25
-0.0 0
-0.1 0.00368358
-0.2 0.00789447
-0.3 0.0132037
-0.4 0.0202566
-0.5 0.0297699
-0.6 0.0424661
-0.7 0.0589177
-0.8 0.0793026
-0.9 0.103158
-1.0 0.12931
-1.1 0.156126
-1.2 0.182057
-1.3 0.206174
-1.4 0.22842
-1.5 0.249498
-1.6 0.270547
-1.7 0.292711
-1.8 0.316724
-1.9 0.342567
-2.0 0.369346
-2.1 0.395527
-2.2 0.419461
-2.3 0.439933
-2.4 0.456434
-2.5 0.469093
-2.6 0.478437
-2.7 0.485139
-2.8 0.489847
-2.9 0.493105
-3.0 0.495337
-3.1 0.496856
-3.2 0.497884
-3.3 0.498578
-3.4 0.499045
-3.5 0.499359
-3.6 0.49957
-3.7 0.499712
-3.8 0.499807
-3.9 0.49987
-4.0 0.499913
+[input parameters]
+LATTICE = "chain lattice";
+MODEL = spin;
+L = 4;
+J = 1;
+T = 0.1;
+ALGORITHM = diagonalization;
+h = 0.0;
+DIR_NAME = .;
+BASE_NAME = task1;
+SEED = 1398349758;
+WORKER_SEED = 1398349758;
+DISORDER_SEED = 1398349758;
+start diagonalization... done
+Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
+[results]
+Binder Ratio of Magnetization: 9.07957e-05 +/- inf
+Binder Ratio of Staggered Magnetization: 0.666661 +/- inf
+Dimension of Matrix: 16 +/- inf
+Energy: -1.99986 +/- inf
+Energy Density: -0.499966 +/- inf
+Entropy: 0.00149831 +/- inf
+Entropy Density: 0.000374576 +/- inf
+Free Energy: -2.00001 +/- inf
+Free Energy Density: -0.500003 +/- inf
+Ground State Energy: -2 +/- inf
+Ground State Energy Density: -0.5 +/- inf
+Inverse Temperature: 10 +/- inf
+Local Magnetization at Site 0: 0 +/- inf
+Local Magnetization at Site 1: 0 +/- inf
+Local Magnetization at Site 2: 0 +/- inf
+Local Magnetization at Site 3: 0 +/- inf
+Magnetization: 0 +/- inf
+Magnetization Density: 0 +/- inf
+Magnetization Density^2: 5.67473e-06 +/- inf
+Magnetization Density^4: 3.54671e-07 +/- inf
+Magnetization^2: 9.07957e-05 +/- inf
+Magnetization^4: 9.07957e-05 +/- inf
+Number of Sites: 4 +/- inf
+Partition Function Coefficient #0: 16 +/- inf
+Partition Function Coefficient #1: 0 +/- inf
+Partition Function Coefficient #2: 6 +/- inf
+Partition Function Coefficient #3: 1 +/- inf
+Partition Function Coefficient #4: 1 +/- inf
+Specific Heat: 0.00340551 +/- inf
+Staggered Magnetization: 0 +/- inf
+Staggered Magnetization Density: 0 +/- inf
+Staggered Magnetization Density^2: 0.166661 +/- inf
+Staggered Magnetization Density^4: 0.0416642 +/- inf
+Staggered Magnetization^2: 2.66658 +/- inf
+Staggered Magnetization^4: 10.666 +/- inf
+Staggered Susceptibility: 1.33313 +/- inf
+Susceptibility: 0.000226989 +/- inf
+Temperature: 0.1 +/- inf
+Volume: 4 +/- inf
+|Magnetization Density|: 2.26989e-05 +/- inf
+|Magnetization|: 9.07957e-05 +/- inf
+|Staggered Magnetization Density|: 0.333333 +/- inf
+|Staggered Magnetization|: 1.33333 +/- inf
+[input parameters]
+LATTICE = "chain lattice";
+MODEL = spin;
+L = 4;
+J = 1;
+T = 0.1;
+ALGORITHM = diagonalization;
+h = 0.1;
+DIR_NAME = .;
+BASE_NAME = task2;
+SEED = 1398349758;
+WORKER_SEED = 1398349758;
+DISORDER_SEED = 1398349758;
+start diagonalization... done
+Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
+[results]
+Binder Ratio of Magnetization: 0.000140098 +/- inf
+Binder Ratio of Staggered Magnetization: 0.66665 +/- inf
+Dimension of Matrix: 16 +/- inf
+Energy: -1.99983 +/- inf
+Energy Density: -0.499956 +/- inf
+Entropy: 0.00193396 +/- inf
+Entropy Density: 0.000483491 +/- inf
+Free Energy: -2.00002 +/- inf
+Free Energy Density: -0.500005 +/- inf
+Ground State Energy: -2 +/- inf
+Ground State Energy Density: -0.5 +/- inf
+Inverse Temperature: 10 +/- inf
+Local Magnetization at Site 0: 2.66745e-05 +/- inf
+Local Magnetization at Site 1: 2.66745e-05 +/- inf
+Local Magnetization at Site 2: 2.66745e-05 +/- inf
+Local Magnetization at Site 3: 2.66745e-05 +/- inf
+Magnetization: 0.000106698 +/- inf
+Magnetization Density: 2.66745e-05 +/- inf
+Magnetization Density^2: 8.75614e-06 +/- inf
+Magnetization Density^4: 5.47259e-07 +/- inf
+Magnetization^2: 0.000140098 +/- inf
+Magnetization^4: 0.000140098 +/- inf
+Number of Sites: 4 +/- inf
+Partition Function Coefficient #0: 16 +/- inf
+Partition Function Coefficient #1: 0 +/- inf
+Partition Function Coefficient #2: 6.08 +/- inf
+Partition Function Coefficient #3: 0.96 +/- inf
+Partition Function Coefficient #4: 1.03017 +/- inf
+Specific Heat: 0.00413954 +/- inf
+Staggered Magnetization: 0 +/- inf
+Staggered Magnetization Density: 0 +/- inf
+Staggered Magnetization Density^2: 0.166656 +/- inf
+Staggered Magnetization Density^4: 0.0416623 +/- inf
+Staggered Magnetization^2: 2.66649 +/- inf
+Staggered Magnetization^4: 10.6656 +/- inf
+Staggered Susceptibility: 1.33308 +/- inf
+Susceptibility: 0.000350246 +/- inf
+Temperature: 0.1 +/- inf
+Volume: 4 +/- inf
+|Magnetization Density|: 3.50246e-05 +/- inf
+|Magnetization|: 0.000140098 +/- inf
+|Staggered Magnetization Density|: 0.333329 +/- inf
+|Staggered Magnetization|: 1.33332 +/- inf
+[input parameters]
+LATTICE = "chain lattice";
+MODEL = spin;
+L = 4;
+J = 1;
+T = 0.1;
+ALGORITHM = diagonalization;
+h = 0.2;
+DIR_NAME = .;
+BASE_NAME = task3;
+SEED = 1398349758;
+WORKER_SEED = 1398349758;
+DISORDER_SEED = 1398349758;
+start diagonalization... done
+Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
+[results]
+Binder Ratio of Magnetization: 0.000341506 +/- inf
+Binder Ratio of Staggered Magnetization: 0.666604 +/- inf
+Dimension of Matrix: 16 +/- inf
+Energy: -1.99968 +/- inf
+Energy Density: -0.49992 +/- inf
+Entropy: 0.00359784 +/- inf
+Entropy Density: 0.00089946 +/- inf
+Free Energy: -2.00004 +/- inf
+Free Energy Density: -0.50001 +/- inf
+Ground State Energy: -2 +/- inf
+Ground State Energy Density: -0.5 +/- inf
+Inverse Temperature: 10 +/- inf
+Local Magnetization at Site 0: 8.23052e-05 +/- inf
+Local Magnetization at Site 1: 8.23052e-05 +/- inf
+Local Magnetization at Site 2: 8.23052e-05 +/- inf
+Local Magnetization at Site 3: 8.23052e-05 +/- inf
+Magnetization: 0.000329221 +/- inf
+Magnetization Density: 8.23052e-05 +/- inf
+Magnetization Density^2: 2.13441e-05 +/- inf
+Magnetization Density^4: 1.33401e-06 +/- inf
+Magnetization^2: 0.000341506 +/- inf
+Magnetization^4: 0.000341506 +/- inf
+Number of Sites: 4 +/- inf
+Partition Function Coefficient #0: 16 +/- inf
+Partition Function Coefficient #1: 1.11022e-16 +/- inf
+Partition Function Coefficient #2: 6.32 +/- inf
+Partition Function Coefficient #3: 0.84 +/- inf
+Partition Function Coefficient #4: 1.12267 +/- inf
+Specific Heat: 0.00672157 +/- inf
+Staggered Magnetization: 0 +/- inf
+Staggered Magnetization Density: 0 +/- inf
+Staggered Magnetization Density^2: 0.166635 +/- inf
+Staggered Magnetization Density^4: 0.0416547 +/- inf
+Staggered Magnetization^2: 2.66616 +/- inf
+Staggered Magnetization^4: 10.6636 +/- inf
+Staggered Susceptibility: 1.33286 +/- inf
+Susceptibility: 0.000853764 +/- inf
+Temperature: 0.1 +/- inf
+Volume: 4 +/- inf
+|Magnetization Density|: 8.53764e-05 +/- inf
+|Magnetization|: 0.000341506 +/- inf
+|Staggered Magnetization Density|: 0.333312 +/- inf
+|Staggered Magnetization|: 1.33325 +/- inf
+[input parameters]
+LATTICE = "chain lattice";
+MODEL = spin;
+L = 4;
+J = 1;
+T = 0.1;
+ALGORITHM = diagonalization;
+h = 0.3;
+DIR_NAME = .;
+BASE_NAME = task4;
+SEED = 1398349759;
+WORKER_SEED = 1398349759;
+DISORDER_SEED = 1398349759;
+start diagonalization... done
+Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
+[results]
+Binder Ratio of Magnetization: 0.000913349 +/- inf
+Binder Ratio of Staggered Magnetization: 0.666473 +/- inf
+Dimension of Matrix: 16 +/- inf
+Energy: -1.99931 +/- inf
+Energy Density: -0.499828 +/- inf
+Entropy: 0.00782068 +/- inf
+Entropy Density: 0.00195517 +/- inf
+Free Energy: -2.0001 +/- inf
+Free Energy Density: -0.500024 +/- inf
+Ground State Energy: -2 +/- inf
+Ground State Energy Density: -0.5 +/- inf
+Inverse Temperature: 10 +/- inf
+Local Magnetization at Site 0: 0.000227208 +/- inf
+Local Magnetization at Site 1: 0.000227208 +/- inf
+Local Magnetization at Site 2: 0.000227208 +/- inf
+Local Magnetization at Site 3: 0.000227208 +/- inf
+Magnetization: 0.000908832 +/- inf
+Magnetization Density: 0.000227208 +/- inf
+Magnetization Density^2: 5.70843e-05 +/- inf
+Magnetization Density^4: 3.56777e-06 +/- inf
+Magnetization^2: 0.000913349 +/- inf
+Magnetization^4: 0.000913349 +/- inf
+Number of Sites: 4 +/- inf
+Partition Function Coefficient #0: 16 +/- inf
+Partition Function Coefficient #1: 0 +/- inf
+Partition Function Coefficient #2: 6.72 +/- inf
+Partition Function Coefficient #3: 0.64 +/- inf
+Partition Function Coefficient #4: 1.2835 +/- inf
+Specific Heat: 0.012384 +/- inf
+Staggered Magnetization: 0 +/- inf
+Staggered Magnetization Density: 0 +/- inf
+Staggered Magnetization Density^2: 0.166575 +/- inf
+Staggered Magnetization Density^4: 0.0416331 +/- inf
+Staggered Magnetization^2: 2.6652 +/- inf
+Staggered Magnetization^4: 10.6581 +/- inf
+Staggered Susceptibility: 1.33224 +/- inf
+Susceptibility: 0.00228337 +/- inf
+Temperature: 0.1 +/- inf
+Volume: 4 +/- inf
+|Magnetization Density|: 0.000228337 +/- inf
+|Magnetization|: 0.000913349 +/- inf
+|Staggered Magnetization Density|: 0.333265 +/- inf
+|Staggered Magnetization|: 1.33306 +/- inf
+[input parameters]
+LATTICE = "chain lattice";
+MODEL = spin;
+L = 4;
+J = 1;
+T = 0.1;
+ALGORITHM = diagonalization;
+h = 0.4;
+DIR_NAME = .;
+BASE_NAME = task5;
+SEED = 1398349759;
+WORKER_SEED = 1398349759;
+DISORDER_SEED = 1398349759;
+start diagonalization... done
+Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
+[results]
+Binder Ratio of Magnetization: 0.00247356 +/- inf
+Binder Ratio of Staggered Magnetization: 0.666115 +/- inf
+Dimension of Matrix: 16 +/- inf
+Energy: -1.99847 +/- inf
+Energy Density: -0.499617 +/- inf
+Entropy: 0.0178253 +/- inf
+Entropy Density: 0.00445632 +/- inf
+Free Energy: -2.00025 +/- inf
+Free Energy Density: -0.500063 +/- inf
+Ground State Energy: -2 +/- inf
+Ground State Energy Density: -0.5 +/- inf
+Inverse Temperature: 10 +/- inf
+Local Magnetization at Site 0: 0.000617976 +/- inf
+Local Magnetization at Site 1: 0.000617976 +/- inf
+Local Magnetization at Site 2: 0.000617976 +/- inf
+Local Magnetization at Site 3: 0.000617976 +/- inf
+Magnetization: 0.0024719 +/- inf
+Magnetization Density: 0.000617976 +/- inf
+Magnetization Density^2: 0.000154598 +/- inf
+Magnetization Density^4: 9.66237e-06 +/- inf
+Magnetization^2: 0.00247356 +/- inf
+Magnetization^4: 0.00247357 +/- inf
+Number of Sites: 4 +/- inf
+Partition Function Coefficient #0: 16 +/- inf
+Partition Function Coefficient #1: 1.66533e-16 +/- inf
+Partition Function Coefficient #2: 7.28 +/- inf
+Partition Function Coefficient #3: 0.36 +/- inf
+Partition Function Coefficient #4: 1.52267 +/- inf
+Specific Heat: 0.0233818 +/- inf
+Staggered Magnetization: 0 +/- inf
+Staggered Magnetization Density: 0 +/- inf
+Staggered Magnetization Density^2: 0.166413 +/- inf
+Staggered Magnetization Density^4: 0.0415742 +/- inf
+Staggered Magnetization^2: 2.6626 +/- inf
+Staggered Magnetization^4: 10.643 +/- inf
+Staggered Susceptibility: 1.33055 +/- inf
+Susceptibility: 0.00618391 +/- inf
+Temperature: 0.1 +/- inf
+Volume: 4 +/- inf
+|Magnetization Density|: 0.000618391 +/- inf
+|Magnetization|: 0.00247356 +/- inf
+|Staggered Magnetization Density|: 0.333135 +/- inf
+|Staggered Magnetization|: 1.33254 +/- inf
+[input parameters]
+LATTICE = "chain lattice";
+MODEL = spin;
+L = 4;
+J = 1;
+T = 0.1;
+ALGORITHM = diagonalization;
+h = 0.5;
+DIR_NAME = .;
+BASE_NAME = task6;
+SEED = 1398349759;
+WORKER_SEED = 1398349759;
+DISORDER_SEED = 1398349759;
+start diagonalization... done
+Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
+[results]
+Binder Ratio of Magnetization: 0.00669344 +/- inf
+Binder Ratio of Staggered Magnetization: 0.66515 +/- inf
+Dimension of Matrix: 16 +/- inf
+Energy: -1.99661 +/- inf
+Energy Density: -0.499152 +/- inf
+Entropy: 0.0406889 +/- inf
+Entropy Density: 0.0101722 +/- inf
+Free Energy: -2.00068 +/- inf
+Free Energy Density: -0.500169 +/- inf
+Ground State Energy: -2 +/- inf
+Ground State Energy Density: -0.5 +/- inf
+Inverse Temperature: 10 +/- inf
+Local Magnetization at Site 0: 0.00167321 +/- inf
+Local Magnetization at Site 1: 0.00167321 +/- inf
+Local Magnetization at Site 2: 0.00167321 +/- inf
+Local Magnetization at Site 3: 0.00167321 +/- inf
+Magnetization: 0.00669285 +/- inf
+Magnetization Density: 0.00167321 +/- inf
+Magnetization Density^2: 0.000418341 +/- inf
+Magnetization Density^4: 2.61464e-05 +/- inf
+Magnetization^2: 0.00669346 +/- inf
+Magnetization^4: 0.00669349 +/- inf
+Number of Sites: 4 +/- inf
+Partition Function Coefficient #0: 16 +/- inf
+Partition Function Coefficient #1: 0 +/- inf
+Partition Function Coefficient #2: 8 +/- inf
+Partition Function Coefficient #3: 0 +/- inf
+Partition Function Coefficient #4: 1.85417 +/- inf
+Specific Heat: 0.0427201 +/- inf
+Staggered Magnetization: 0 +/- inf
+Staggered Magnetization Density: 0 +/- inf
+Staggered Magnetization Density^2: 0.165973 +/- inf
+Staggered Magnetization Density^4: 0.0414149 +/- inf
+Staggered Magnetization^2: 2.65557 +/- inf
+Staggered Magnetization^4: 10.6022 +/- inf
+Staggered Susceptibility: 1.32598 +/- inf
+Susceptibility: 0.0167337 +/- inf
+Temperature: 0.1 +/- inf
+Volume: 4 +/- inf
+|Magnetization Density|: 0.00167336 +/- inf
+|Magnetization|: 0.00669346 +/- inf
+|Staggered Magnetization Density|: 0.332783 +/- inf
+|Staggered Magnetization|: 1.33113 +/- inf
+[input parameters]
+LATTICE = "chain lattice";
+MODEL = spin;
+L = 4;
+J = 1;
+T = 0.1;
+ALGORITHM = diagonalization;
+h = 0.6;
+DIR_NAME = .;
+BASE_NAME = task7;
+SEED = 1398349760;
+WORKER_SEED = 1398349760;
+DISORDER_SEED = 1398349760;
+start diagonalization... done
+Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
+[results]
+Binder Ratio of Magnetization: 0.017987 +/- inf
+Binder Ratio of Staggered Magnetization: 0.662577 +/- inf
+Dimension of Matrix: 16 +/- inf
+Energy: -1.99276 +/- inf
+Energy Density: -0.49819 +/- inf
+Entropy: 0.0906086 +/- inf
+Entropy Density: 0.0226522 +/- inf
+Free Energy: -2.00182 +/- inf
+Free Energy Density: -0.500455 +/- inf
+Ground State Energy: -2 +/- inf
+Ground State Energy Density: -0.5 +/- inf
+Inverse Temperature: 10 +/- inf
+Local Magnetization at Site 0: 0.00449673 +/- inf
+Local Magnetization at Site 1: 0.00449673 +/- inf
+Local Magnetization at Site 2: 0.00449673 +/- inf
+Local Magnetization at Site 3: 0.00449673 +/- inf
+Magnetization: 0.0179869 +/- inf
+Magnetization Density: 0.00449673 +/- inf
+Magnetization Density^2: 0.0011242 +/- inf
+Magnetization Density^4: 7.02631e-05 +/- inf
+Magnetization^2: 0.0179872 +/- inf
+Magnetization^4: 0.0179874 +/- inf
+Number of Sites: 4 +/- inf
+Partition Function Coefficient #0: 16 +/- inf
+Partition Function Coefficient #1: -1.11022e-16 +/- inf
+Partition Function Coefficient #2: 8.88 +/- inf
+Partition Function Coefficient #3: -0.44 +/- inf
+Partition Function Coefficient #4: 2.296 +/- inf
+Specific Heat: 0.0718341 +/- inf
+Staggered Magnetization: 0 +/- inf
+Staggered Magnetization Density: 0 +/- inf
+Staggered Magnetization Density^2: 0.164797 +/- inf
+Staggered Magnetization Density^4: 0.0409884 +/- inf
+Staggered Magnetization^2: 2.63675 +/- inf
+Staggered Magnetization^4: 10.493 +/- inf
+Staggered Susceptibility: 1.31375 +/- inf
+Susceptibility: 0.0449679 +/- inf
+Temperature: 0.1 +/- inf
+Volume: 4 +/- inf
+|Magnetization Density|: 0.00449679 +/- inf
+|Magnetization|: 0.0179871 +/- inf
+|Staggered Magnetization Density|: 0.331842 +/- inf
+|Staggered Magnetization|: 1.32737 +/- inf
+[input parameters]
+LATTICE = "chain lattice";
+MODEL = spin;
+L = 4;
+J = 1;
+T = 0.1;
+ALGORITHM = diagonalization;
+h = 0.7;
+DIR_NAME = .;
+BASE_NAME = task8;
+SEED = 1398349760;
+WORKER_SEED = 1398349760;
+DISORDER_SEED = 1398349760;
+start diagonalization... done
+Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
+[results]
+Binder Ratio of Magnetization: 0.0474271 +/- inf
+Binder Ratio of Staggered Magnetization: 0.655936 +/- inf
+Dimension of Matrix: 16 +/- inf
+Energy: -1.98572 +/- inf
+Energy Density: -0.496431 +/- inf
+Entropy: 0.191397 +/- inf
+Entropy Density: 0.0478492 +/- inf
+Free Energy: -2.00486 +/- inf
+Free Energy Density: -0.501216 +/- inf
+Ground State Energy: -2 +/- inf
+Ground State Energy Density: -0.5 +/- inf
+Inverse Temperature: 10 +/- inf
+Local Magnetization at Site 0: 0.011857 +/- inf
+Local Magnetization at Site 1: 0.011857 +/- inf
+Local Magnetization at Site 2: 0.011857 +/- inf
+Local Magnetization at Site 3: 0.011857 +/- inf
+Magnetization: 0.0474281 +/- inf
+Magnetization Density: 0.011857 +/- inf
+Magnetization Density^2: 0.00296427 +/- inf
+Magnetization Density^4: 0.000185272 +/- inf
+Magnetization^2: 0.0474284 +/- inf
+Magnetization^4: 0.0474297 +/- inf
+Number of Sites: 4 +/- inf
+Partition Function Coefficient #0: 16 +/- inf
+Partition Function Coefficient #1: -3.33067e-16 +/- inf
+Partition Function Coefficient #2: 9.92 +/- inf
+Partition Function Coefficient #3: -0.96 +/- inf
+Partition Function Coefficient #4: 2.87017 +/- inf
+Specific Heat: 0.102881 +/- inf
+Staggered Magnetization: 0 +/- inf
+Staggered Magnetization Density: 0 +/- inf
+Staggered Magnetization Density^2: 0.16173 +/- inf
+Staggered Magnetization Density^4: 0.0398767 +/- inf
+Staggered Magnetization^2: 2.58768 +/- inf
+Staggered Magnetization^4: 10.2084 +/- inf
+Staggered Susceptibility: 1.28186 +/- inf
+Susceptibility: 0.118571 +/- inf
+Temperature: 0.1 +/- inf
+Volume: 4 +/- inf
+|Magnetization Density|: 0.011857 +/- inf
+|Magnetization|: 0.0474282 +/- inf
+|Staggered Magnetization Density|: 0.329388 +/- inf
+|Staggered Magnetization|: 1.31755 +/- inf
+[input parameters]
+LATTICE = "chain lattice";
+MODEL = spin;
+L = 4;
+J = 1;
+T = 0.1;
+ALGORITHM = diagonalization;
+h = 0.8;
+DIR_NAME = .;
+BASE_NAME = task9;
+SEED = 1398349761;
+WORKER_SEED = 1398349761;
+DISORDER_SEED = 1398349761;
+start diagonalization... done
+Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
+[results]
+Binder Ratio of Magnetization: 0.119202 +/- inf
+Binder Ratio of Staggered Magnetization: 0.640201 +/- inf
+Dimension of Matrix: 16 +/- inf
+Energy: -1.97611 +/- inf
+Energy Density: -0.494027 +/- inf
+Entropy: 0.365913 +/- inf
+Entropy Density: 0.0914784 +/- inf
+Free Energy: -2.0127 +/- inf
+Free Energy Density: -0.503174 +/- inf
+Ground State Energy: -2 +/- inf
+Ground State Energy Density: -0.5 +/- inf
+Inverse Temperature: 10 +/- inf
+Local Magnetization at Site 0: 0.0298023 +/- inf
+Local Magnetization at Site 1: 0.0298023 +/- inf
+Local Magnetization at Site 2: 0.0298023 +/- inf
+Local Magnetization at Site 3: 0.0298023 +/- inf
+Magnetization: 0.119209 +/- inf
+Magnetization Density: 0.0298023 +/- inf
+Magnetization Density^2: 0.00745066 +/- inf
+Magnetization Density^4: 0.000465701 +/- inf
+Magnetization^2: 0.119211 +/- inf
+Magnetization^4: 0.119219 +/- inf
+Number of Sites: 4 +/- inf
+Partition Function Coefficient #0: 16 +/- inf
+Partition Function Coefficient #1: 1.11022e-16 +/- inf
+Partition Function Coefficient #2: 11.12 +/- inf
+Partition Function Coefficient #3: -1.56 +/- inf
+Partition Function Coefficient #4: 3.60267 +/- inf
+Specific Heat: 0.106351 +/- inf
+Staggered Magnetization: 0 +/- inf
+Staggered Magnetization Density: 0 +/- inf
+Staggered Magnetization Density^2: 0.154252 +/- inf
+Staggered Magnetization Density^4: 0.0371661 +/- inf
+Staggered Magnetization^2: 2.46804 +/- inf
+Staggered Magnetization^4: 9.51453 +/- inf
+Staggered Susceptibility: 1.20412 +/- inf
+Susceptibility: 0.298026 +/- inf
+Temperature: 0.1 +/- inf
+Volume: 4 +/- inf
+|Magnetization Density|: 0.0298023 +/- inf
+|Magnetization|: 0.119209 +/- inf
+|Staggered Magnetization Density|: 0.323406 +/- inf
+|Staggered Magnetization|: 1.29362 +/- inf
+[input parameters]
+LATTICE = "chain lattice";
+MODEL = spin;
+L = 4;
+J = 1;
+T = 0.1;
+ALGORITHM = diagonalization;
+h = 0.9;
+DIR_NAME = .;
+BASE_NAME = task10;
+SEED = 1398349761;
+WORKER_SEED = 1398349761;
+DISORDER_SEED = 1398349761;
+start diagonalization... done
+Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
+[results]
+Binder Ratio of Magnetization: 0.268913 +/- inf
+Binder Ratio of Staggered Magnetization: 0.610084 +/- inf
+Dimension of Matrix: 16 +/- inf
+Energy: -1.97304 +/- inf
+Energy Density: -0.493261 +/- inf
+Entropy: 0.582903 +/- inf
+Entropy Density: 0.145726 +/- inf
+Free Energy: -2.03133 +/- inf
+Free Energy Density: -0.507833 +/- inf
+Ground State Energy: -2 +/- inf
+Ground State Energy Density: -0.5 +/- inf
+Inverse Temperature: 10 +/- inf
+Local Magnetization at Site 0: 0.0672395 +/- inf
+Local Magnetization at Site 1: 0.0672395 +/- inf
+Local Magnetization at Site 2: 0.0672395 +/- inf
+Local Magnetization at Site 3: 0.0672395 +/- inf
+Magnetization: 0.268958 +/- inf
+Magnetization Density: 0.0672395 +/- inf
+Magnetization Density^2: 0.0168104 +/- inf
+Magnetization Density^4: 0.00105086 +/- inf
+Magnetization^2: 0.268967 +/- inf
+Magnetization^4: 0.269021 +/- inf
+Number of Sites: 4 +/- inf
+Partition Function Coefficient #0: 16 +/- inf
+Partition Function Coefficient #1: 0 +/- inf
+Partition Function Coefficient #2: 12.48 +/- inf
+Partition Function Coefficient #3: -2.24 +/- inf
+Partition Function Coefficient #4: 4.5235 +/- inf
+Specific Heat: 0.0507939 +/- inf
+Staggered Magnetization: 0 +/- inf
+Staggered Magnetization Density: 0 +/- inf
+Staggered Magnetization Density^2: 0.138653 +/- inf
+Staggered Magnetization Density^4: 0.0315115 +/- inf
+Staggered Magnetization^2: 2.21845 +/- inf
+Staggered Magnetization^4: 8.06695 +/- inf
+Staggered Susceptibility: 1.04194 +/- inf
+Susceptibility: 0.672418 +/- inf
+Temperature: 0.1 +/- inf
+Volume: 4 +/- inf
+|Magnetization Density|: 0.0672395 +/- inf
+|Magnetization|: 0.268958 +/- inf
+|Staggered Magnetization Density|: 0.310925 +/- inf
+|Staggered Magnetization|: 1.2437 +/- inf
+[input parameters]
+LATTICE = "chain lattice";
+MODEL = spin;
+L = 4;
+J = 1;
+T = 0.1;
+ALGORITHM = diagonalization;
+h = 1.0;
+DIR_NAME = .;
+BASE_NAME = task11;
+SEED = 1398349761;
+WORKER_SEED = 1398349761;
+DISORDER_SEED = 1398349761;
+start diagonalization... done
+Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
+[results]
+Binder Ratio of Magnetization: 0.499819 +/- inf
+Binder Ratio of Staggered Magnetization: 0.576183 +/- inf
+Dimension of Matrix: 16 +/- inf
+Energy: -1.99991 +/- inf
+Energy Density: -0.499977 +/- inf
+Entropy: 0.694146 +/- inf
+Entropy Density: 0.173537 +/- inf
+Free Energy: -2.06932 +/- inf
+Free Energy Density: -0.517331 +/- inf
+Ground State Energy: -2 +/- inf
+Ground State Energy Density: -0.5 +/- inf
+Inverse Temperature: 10 +/- inf
+Local Magnetization at Site 0: 0.125011 +/- inf
+Local Magnetization at Site 1: 0.125011 +/- inf
+Local Magnetization at Site 2: 0.125011 +/- inf
+Local Magnetization at Site 3: 0.125011 +/- inf
+Magnetization: 0.500045 +/- inf
+Magnetization Density: 0.125011 +/- inf
+Magnetization Density^2: 0.0312557 +/- inf
+Magnetization Density^4: 0.00195454 +/- inf
+Magnetization^2: 0.500091 +/- inf
+Magnetization^4: 0.500363 +/- inf
+Number of Sites: 4 +/- inf
+Partition Function Coefficient #0: 16 +/- inf
+Partition Function Coefficient #1: 0 +/- inf
+Partition Function Coefficient #2: 14 +/- inf
+Partition Function Coefficient #3: -3 +/- inf
+Partition Function Coefficient #4: 5.66667 +/- inf
+Specific Heat: 0.0022701 +/- inf
+Staggered Magnetization: 0 +/- inf
+Staggered Magnetization Density: 0 +/- inf
+Staggered Magnetization Density^2: 0.114581 +/- inf
+Staggered Magnetization Density^4: 0.022786 +/- inf
+Staggered Magnetization^2: 1.8333 +/- inf
+Staggered Magnetization^4: 5.83321 +/- inf
+Staggered Susceptibility: 0.791686 +/- inf
+Susceptibility: 1.25023 +/- inf
+Temperature: 0.1 +/- inf
+Volume: 4 +/- inf
+|Magnetization Density|: 0.125011 +/- inf
+|Magnetization|: 0.500045 +/- inf
+|Staggered Magnetization Density|: 0.291663 +/- inf
+|Staggered Magnetization|: 1.16665 +/- inf
+[input parameters]
+LATTICE = "chain lattice";
+MODEL = spin;
+L = 4;
+J = 1;
+T = 0.1;
+ALGORITHM = diagonalization;
+h = 1.1;
+DIR_NAME = .;
+BASE_NAME = task12;
+SEED = 1398349762;
+WORKER_SEED = 1398349762;
+DISORDER_SEED = 1398349762;
+start diagonalization... done
+Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
+[results]
+Binder Ratio of Magnetization: 0.730282 +/- inf
+Binder Ratio of Staggered Magnetization: 0.582597 +/- inf
+Dimension of Matrix: 16 +/- inf
+Energy: -2.07295 +/- inf
+Energy Density: -0.518237 +/- inf
+Entropy: 0.583936 +/- inf
+Entropy Density: 0.145984 +/- inf
+Free Energy: -2.13134 +/- inf
+Free Energy Density: -0.532836 +/- inf
+Ground State Energy: -2.1 +/- inf
+Ground State Energy Density: -0.525 +/- inf
+Inverse Temperature: 10 +/- inf
+Local Magnetization at Site 0: 0.182795 +/- inf
+Local Magnetization at Site 1: 0.182795 +/- inf
+Local Magnetization at Site 2: 0.182795 +/- inf
+Local Magnetization at Site 3: 0.182795 +/- inf
+Magnetization: 0.731182 +/- inf
+Magnetization Density: 0.182795 +/- inf
+Magnetization Density^2: 0.0457101 +/- inf
+Magnetization Density^4: 0.00286111 +/- inf
+Magnetization^2: 0.731362 +/- inf
+Magnetization^4: 0.732445 +/- inf
+Number of Sites: 4 +/- inf
+Partition Function Coefficient #0: 16 +/- inf
+Partition Function Coefficient #1: 4.44089e-16 +/- inf
+Partition Function Coefficient #2: 15.68 +/- inf
+Partition Function Coefficient #3: -3.84 +/- inf
+Partition Function Coefficient #4: 7.07017 +/- inf
+Specific Heat: 0.0527862 +/- inf
+Staggered Magnetization: 0 +/- inf
+Staggered Magnetization Density: 0 +/- inf
+Staggered Magnetization Density^2: 0.0905067 +/- inf
+Staggered Magnetization Density^4: 0.0140602 +/- inf
+Staggered Magnetization^2: 1.44811 +/- inf
+Staggered Magnetization^4: 3.59942 +/- inf
+Staggered Susceptibility: 0.541416 +/- inf
+Susceptibility: 1.82841 +/- inf
+Temperature: 0.1 +/- inf
+Volume: 4 +/- inf
+|Magnetization Density|: 0.182795 +/- inf
+|Magnetization|: 0.731182 +/- inf
+|Staggered Magnetization Density|: 0.272389 +/- inf
+|Staggered Magnetization|: 1.08955 +/- inf
+[input parameters]
+LATTICE = "chain lattice";
+MODEL = spin;
+L = 4;
+J = 1;
+T = 0.1;
+ALGORITHM = diagonalization;
+h = 1.2;
+DIR_NAME = .;
+BASE_NAME = task13;
+SEED = 1398349762;
+WORKER_SEED = 1398349762;
+DISORDER_SEED = 1398349762;
+start diagonalization... done
+Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
+[results]
+Binder Ratio of Magnetization: 0.878193 +/- inf
+Binder Ratio of Staggered Magnetization: 0.66738 +/- inf
+Dimension of Matrix: 16 +/- inf
+Energy: -2.17585 +/- inf
+Energy Density: -0.543961 +/- inf
+Entropy: 0.368851 +/- inf
+Entropy Density: 0.0922128 +/- inf
+Free Energy: -2.21273 +/- inf
+Free Energy Density: -0.553183 +/- inf
+Ground State Energy: -2.2 +/- inf
+Ground State Energy Density: -0.55 +/- inf
+Inverse Temperature: 10 +/- inf
+Local Magnetization at Site 0: 0.220283 +/- inf
+Local Magnetization at Site 1: 0.220283 +/- inf
+Local Magnetization at Site 2: 0.220283 +/- inf
+Local Magnetization at Site 3: 0.220283 +/- inf
+Magnetization: 0.881132 +/- inf
+Magnetization Density: 0.220283 +/- inf
+Magnetization Density^2: 0.0551077 +/- inf
+Magnetization Density^4: 0.00345808 +/- inf
+Magnetization^2: 0.881723 +/- inf
+Magnetization^4: 0.885267 +/- inf
+Number of Sites: 4 +/- inf
+Partition Function Coefficient #0: 16 +/- inf
+Partition Function Coefficient #1: 0 +/- inf
+Partition Function Coefficient #2: 17.52 +/- inf
+Partition Function Coefficient #3: -4.76 +/- inf
+Partition Function Coefficient #4: 8.776 +/- inf
+Specific Heat: 0.111491 +/- inf
+Staggered Magnetization: 0 +/- inf
+Staggered Magnetization Density: 0 +/- inf
+Staggered Magnetization Density^2: 0.0748948 +/- inf
+Staggered Magnetization Density^4: 0.00840485 +/- inf
+Staggered Magnetization^2: 1.19832 +/- inf
+Staggered Magnetization^4: 2.15164 +/- inf
+Staggered Susceptibility: 0.379187 +/- inf
+Susceptibility: 2.20431 +/- inf
+Temperature: 0.1 +/- inf
+Volume: 4 +/- inf
+|Magnetization Density|: 0.220283 +/- inf
+|Magnetization|: 0.881132 +/- inf
+|Staggered Magnetization Density|: 0.259857 +/- inf
+|Staggered Magnetization|: 1.03943 +/- inf
+[input parameters]
+LATTICE = "chain lattice";
+MODEL = spin;
+L = 4;
+J = 1;
+T = 0.1;
+ALGORITHM = diagonalization;
+h = 1.3;
+DIR_NAME = .;
+BASE_NAME = task14;
+SEED = 1398349763;
+WORKER_SEED = 1398349763;
+DISORDER_SEED = 1398349763;
+start diagonalization... done
+Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
+[results]
+Binder Ratio of Magnetization: 0.944919 +/- inf
+Binder Ratio of Staggered Magnetization: 0.797648 +/- inf
+Dimension of Matrix: 16 +/- inf
+Energy: -2.28509 +/- inf
+Energy Density: -0.571272 +/- inf
+Entropy: 0.198652 +/- inf
+Entropy Density: 0.0496631 +/- inf
+Free Energy: -2.30495 +/- inf
+Free Energy Density: -0.576239 +/- inf
+Ground State Energy: -2.3 +/- inf
+Ground State Energy Density: -0.575 +/- inf
+Inverse Temperature: 10 +/- inf
+Local Magnetization at Site 0: 0.238371 +/- inf
+Local Magnetization at Site 1: 0.238371 +/- inf
+Local Magnetization at Site 2: 0.238371 +/- inf
+Local Magnetization at Site 3: 0.238371 +/- inf
+Magnetization: 0.953485 +/- inf
+Magnetization Density: 0.238371 +/- inf
+Magnetization Density^2: 0.0597013 +/- inf
+Magnetization Density^4: 0.00377201 +/- inf
+Magnetization^2: 0.955221 +/- inf
+Magnetization^4: 0.965634 +/- inf
+Number of Sites: 4 +/- inf
+Partition Function Coefficient #0: 16 +/- inf
+Partition Function Coefficient #1: 0 +/- inf
+Partition Function Coefficient #2: 19.52 +/- inf
+Partition Function Coefficient #3: -5.76 +/- inf
+Partition Function Coefficient #4: 10.8302 +/- inf
+Specific Heat: 0.11393 +/- inf
+Staggered Magnetization: 0 +/- inf
+Staggered Magnetization Density: 0 +/- inf
+Staggered Magnetization Density^2: 0.0673816 +/- inf
+Staggered Magnetization Density^4: 0.00569209 +/- inf
+Staggered Magnetization^2: 1.07811 +/- inf
+Staggered Magnetization^4: 1.45718 +/- inf
+Staggered Susceptibility: 0.301304 +/- inf
+Susceptibility: 2.38805 +/- inf
+Temperature: 0.1 +/- inf
+Volume: 4 +/- inf
+|Magnetization Density|: 0.238371 +/- inf
+|Magnetization|: 0.953485 +/- inf
+|Staggered Magnetization Density|: 0.253732 +/- inf
+|Staggered Magnetization|: 1.01493 +/- inf
+[input parameters]
+LATTICE = "chain lattice";
+MODEL = spin;
+L = 4;
+J = 1;
+T = 0.1;
+ALGORITHM = diagonalization;
+h = 1.4;
+DIR_NAME = .;
+BASE_NAME = task15;
+SEED = 1398349763;
+WORKER_SEED = 1398349763;
+DISORDER_SEED = 1398349763;
+start diagonalization... done
+Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
+[results]
+Binder Ratio of Magnetization: 0.961039 +/- inf
+Binder Ratio of Staggered Magnetization: 0.901533 +/- inf
+Dimension of Matrix: 16 +/- inf
+Energy: -2.39128 +/- inf
+Energy Density: -0.597819 +/- inf
+Entropy: 0.107904 +/- inf
+Entropy Density: 0.0269759 +/- inf
+Free Energy: -2.40207 +/- inf
+Free Energy Density: -0.600517 +/- inf
+Ground State Energy: -2.4 +/- inf
+Ground State Energy Density: -0.6 +/- inf
+Inverse Temperature: 10 +/- inf
+Local Magnetization at Site 0: 0.246122 +/- inf
+Local Magnetization at Site 1: 0.246122 +/- inf
+Local Magnetization at Site 2: 0.246122 +/- inf
+Local Magnetization at Site 3: 0.246122 +/- inf
+Magnetization: 0.984486 +/- inf
+Magnetization Density: 0.246122 +/- inf
+Magnetization Density^2: 0.0618339 +/- inf
+Magnetization Density^4: 0.00397843 +/- inf
+Magnetization^2: 0.989342 +/- inf
+Magnetization^4: 1.01848 +/- inf
+Number of Sites: 4 +/- inf
+Partition Function Coefficient #0: 16 +/- inf
+Partition Function Coefficient #1: -2.22045e-16 +/- inf
+Partition Function Coefficient #2: 21.68 +/- inf
+Partition Function Coefficient #3: -6.84 +/- inf
+Partition Function Coefficient #4: 13.2827 +/- inf
+Specific Heat: 0.0939774 +/- inf
+Staggered Magnetization: 0 +/- inf
+Staggered Magnetization Density: 0 +/- inf
+Staggered Magnetization Density^2: 0.0642172 +/- inf
+Staggered Magnetization Density^4: 0.00457427 +/- inf
+Staggered Magnetization^2: 1.02748 +/- inf
+Staggered Magnetization^4: 1.17101 +/- inf
+Staggered Susceptibility: 0.269028 +/- inf
+Susceptibility: 2.47336 +/- inf
+Temperature: 0.1 +/- inf
+Volume: 4 +/- inf
+|Magnetization Density|: 0.246122 +/- inf
+|Magnetization|: 0.984486 +/- inf
+|Staggered Magnetization Density|: 0.250888 +/- inf
+|Staggered Magnetization|: 1.00355 +/- inf
+[input parameters]
+LATTICE = "chain lattice";
+MODEL = spin;
+L = 4;
+J = 1;
+T = 0.1;
+ALGORITHM = diagonalization;
+h = 1.5;
+DIR_NAME = .;
+BASE_NAME = task16;
+SEED = 1398349763;
+WORKER_SEED = 1398349763;
+DISORDER_SEED = 1398349763;
+start diagonalization... done
+Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
+[results]
+Binder Ratio of Magnetization: 0.939344 +/- inf
+Binder Ratio of Staggered Magnetization: 0.953922 +/- inf
+Dimension of Matrix: 16 +/- inf
+Energy: -2.49326 +/- inf
+Energy Density: -0.623316 +/- inf
+Entropy: 0.0808538 +/- inf
+Entropy Density: 0.0202134 +/- inf
+Free Energy: -2.50135 +/- inf
+Free Energy Density: -0.625337 +/- inf
+Ground State Energy: -2.5 +/- inf
+Ground State Energy Density: -0.625 +/- inf
+Inverse Temperature: 10 +/- inf
+Local Magnetization at Site 0: 0.25 +/- inf
+Local Magnetization at Site 1: 0.25 +/- inf
+Local Magnetization at Site 2: 0.25 +/- inf
+Local Magnetization at Site 3: 0.25 +/- inf
+Magnetization: 1 +/- inf
+Magnetization Density: 0.25 +/- inf
+Magnetization Density^2: 0.063331 +/- inf
+Magnetization Density^4: 0.0042698 +/- inf
+Magnetization^2: 1.0133 +/- inf
+Magnetization^4: 1.09307 +/- inf
+Number of Sites: 4 +/- inf
+Partition Function Coefficient #0: 16 +/- inf
+Partition Function Coefficient #1: 0 +/- inf
+Partition Function Coefficient #2: 24 +/- inf
+Partition Function Coefficient #3: -8 +/- inf
+Partition Function Coefficient #4: 16.1875 +/- inf
+Specific Heat: 0.0842188 +/- inf
+Staggered Magnetization: 0 +/- inf
+Staggered Magnetization Density: 0 +/- inf
+Staggered Magnetization Density^2: 0.062777 +/- inf
+Staggered Magnetization Density^4: 0.00413132 +/- inf
+Staggered Magnetization^2: 1.00443 +/- inf
+Staggered Magnetization^4: 1.05762 +/- inf
+Staggered Susceptibility: 0.255741 +/- inf
+Susceptibility: 2.53324 +/- inf
+Temperature: 0.1 +/- inf
+Volume: 4 +/- inf
+|Magnetization Density|: 0.25 +/- inf
+|Magnetization|: 1 +/- inf
+|Staggered Magnetization Density|: 0.248892 +/- inf
+|Staggered Magnetization|: 0.995568 +/- inf
+[input parameters]
+LATTICE = "chain lattice";
+MODEL = spin;
+L = 4;
+J = 1;
+T = 0.1;
+ALGORITHM = diagonalization;
+h = 1.6;
+DIR_NAME = .;
+BASE_NAME = task17;
+SEED = 1398349764;
+WORKER_SEED = 1398349764;
+DISORDER_SEED = 1398349764;
+start diagonalization... done
+Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
+[results]
+Binder Ratio of Magnetization: 0.872695 +/- inf
+Binder Ratio of Staggered Magnetization: 0.967056 +/- inf
+Dimension of Matrix: 16 +/- inf
+Energy: -2.59128 +/- inf
+Energy Density: -0.647819 +/- inf
+Entropy: 0.107893 +/- inf
+Entropy Density: 0.0269734 +/- inf
+Free Energy: -2.60207 +/- inf
+Free Energy Density: -0.650517 +/- inf
+Ground State Energy: -2.6 +/- inf
+Ground State Energy Density: -0.65 +/- inf
+Inverse Temperature: 10 +/- inf
+Local Magnetization at Site 0: 0.253878 +/- inf
+Local Magnetization at Site 1: 0.253878 +/- inf
+Local Magnetization at Site 2: 0.253878 +/- inf
+Local Magnetization at Site 3: 0.253878 +/- inf
+Magnetization: 1.01551 +/- inf
+Magnetization Density: 0.253878 +/- inf
+Magnetization Density^2: 0.0657122 +/- inf
+Magnetization Density^4: 0.00494799 +/- inf
+Magnetization^2: 1.05139 +/- inf
+Magnetization^4: 1.26669 +/- inf
+Number of Sites: 4 +/- inf
+Partition Function Coefficient #0: 16 +/- inf
+Partition Function Coefficient #1: 0 +/- inf
+Partition Function Coefficient #2: 26.48 +/- inf
+Partition Function Coefficient #3: -9.24 +/- inf
+Partition Function Coefficient #4: 19.6027 +/- inf
+Specific Heat: 0.093945 +/- inf
+Staggered Magnetization: 0 +/- inf
+Staggered Magnetization Density: 0 +/- inf
+Staggered Magnetization Density^2: 0.0616316 +/- inf
+Staggered Magnetization Density^4: 0.00392786 +/- inf
+Staggered Magnetization^2: 0.986106 +/- inf
+Staggered Magnetization^4: 1.00553 +/- inf
+Staggered Susceptibility: 0.248345 +/- inf
+Susceptibility: 2.62849 +/- inf
+Temperature: 0.1 +/- inf
+Volume: 4 +/- inf
+|Magnetization Density|: 0.253878 +/- inf
+|Magnetization|: 1.01551 +/- inf
+|Staggered Magnetization Density|: 0.245717 +/- inf
+|Staggered Magnetization|: 0.982869 +/- inf
+[input parameters]
+LATTICE = "chain lattice";
+MODEL = spin;
+L = 4;
+J = 1;
+T = 0.1;
+ALGORITHM = diagonalization;
+h = 1.7;
+DIR_NAME = .;
+BASE_NAME = task18;
+SEED = 1398349764;
+WORKER_SEED = 1398349764;
+DISORDER_SEED = 1398349764;
+start diagonalization... done
+Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
+[results]
+Binder Ratio of Magnetization: 0.76177 +/- inf
+Binder Ratio of Staggered Magnetization: 0.947173 +/- inf
+Dimension of Matrix: 16 +/- inf
+Energy: -2.68509 +/- inf
+Energy Density: -0.671273 +/- inf
+Entropy: 0.198623 +/- inf
+Entropy Density: 0.0496558 +/- inf
+Free Energy: -2.70495 +/- inf
+Free Energy Density: -0.676239 +/- inf
+Ground State Energy: -2.7 +/- inf
+Ground State Energy Density: -0.675 +/- inf
+Inverse Temperature: 10 +/- inf
+Local Magnetization at Site 0: 0.261628 +/- inf
+Local Magnetization at Site 1: 0.261628 +/- inf
+Local Magnetization at Site 2: 0.261628 +/- inf
+Local Magnetization at Site 3: 0.261628 +/- inf
+Magnetization: 1.04651 +/- inf
+Magnetization Density: 0.261628 +/- inf
+Magnetization Density^2: 0.0713296 +/- inf
+Magnetization Density^4: 0.00667907 +/- inf
+Magnetization^2: 1.14127 +/- inf
+Magnetization^4: 1.70984 +/- inf
+Number of Sites: 4 +/- inf
+Partition Function Coefficient #0: 16 +/- inf
+Partition Function Coefficient #1: 0 +/- inf
+Partition Function Coefficient #2: 29.12 +/- inf
+Partition Function Coefficient #3: -10.56 +/- inf
+Partition Function Coefficient #4: 23.5902 +/- inf
+Specific Heat: 0.113844 +/- inf
+Staggered Magnetization: 0 +/- inf
+Staggered Magnetization Density: 0 +/- inf
+Staggered Magnetization Density^2: 0.0596291 +/- inf
+Staggered Magnetization Density^4: 0.00375394 +/- inf
+Staggered Magnetization^2: 0.954066 +/- inf
+Staggered Magnetization^4: 0.961009 +/- inf
+Staggered Susceptibility: 0.239289 +/- inf
+Susceptibility: 2.85319 +/- inf
+Temperature: 0.1 +/- inf
+Volume: 4 +/- inf
+|Magnetization Density|: 0.261628 +/- inf
+|Magnetization|: 1.04651 +/- inf
+|Staggered Magnetization Density|: 0.238227 +/- inf
+|Staggered Magnetization|: 0.952909 +/- inf
+[input parameters]
+LATTICE = "chain lattice";
+MODEL = spin;
+L = 4;
+J = 1;
+T = 0.1;
+ALGORITHM = diagonalization;
+h = 1.8;
+DIR_NAME = .;
+BASE_NAME = task19;
+SEED = 1398349764;
+WORKER_SEED = 1398349764;
+DISORDER_SEED = 1398349764;
+start diagonalization... done
+Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
+[results]
+Binder Ratio of Magnetization: 0.660884 +/- inf
+Binder Ratio of Staggered Magnetization: 0.878977 +/- inf
+Dimension of Matrix: 16 +/- inf
+Energy: -2.77585 +/- inf
+Energy Density: -0.693963 +/- inf
+Entropy: 0.368782 +/- inf
+Entropy Density: 0.0921956 +/- inf
+Free Energy: -2.81273 +/- inf
+Free Energy Density: -0.703183 +/- inf
+Ground State Energy: -2.8 +/- inf
+Ground State Energy Density: -0.7 +/- inf
+Inverse Temperature: 10 +/- inf
+Local Magnetization at Site 0: 0.279716 +/- inf
+Local Magnetization at Site 1: 0.279716 +/- inf
+Local Magnetization at Site 2: 0.279716 +/- inf
+Local Magnetization at Site 3: 0.279716 +/- inf
+Magnetization: 1.11886 +/- inf
+Magnetization Density: 0.279716 +/- inf
+Magnetization Density^2: 0.0848237 +/- inf
+Magnetization Density^4: 0.010887 +/- inf
+Magnetization^2: 1.35718 +/- inf
+Magnetization^4: 2.78708 +/- inf
+Number of Sites: 4 +/- inf
+Partition Function Coefficient #0: 16 +/- inf
+Partition Function Coefficient #1: 0 +/- inf
+Partition Function Coefficient #2: 31.92 +/- inf
+Partition Function Coefficient #3: -11.96 +/- inf
+Partition Function Coefficient #4: 28.216 +/- inf
+Specific Heat: 0.111306 +/- inf
+Staggered Magnetization: 0 +/- inf
+Staggered Magnetization Density: 0 +/- inf
+Staggered Magnetization Density^2: 0.0550834 +/- inf
+Staggered Magnetization Density^4: 0.00345194 +/- inf
+Staggered Magnetization^2: 0.881334 +/- inf
+Staggered Magnetization^4: 0.883697 +/- inf
+Staggered Susceptibility: 0.22071 +/- inf
+Susceptibility: 3.39295 +/- inf
+Temperature: 0.1 +/- inf
+Volume: 4 +/- inf
+|Magnetization Density|: 0.279716 +/- inf
+|Magnetization|: 1.11886 +/- inf
+|Staggered Magnetization Density|: 0.220235 +/- inf
+|Staggered Magnetization|: 0.88094 +/- inf
+[input parameters]
+LATTICE = "chain lattice";
+MODEL = spin;
+L = 4;
+J = 1;
+T = 0.1;
+ALGORITHM = diagonalization;
+h = 1.9;
+DIR_NAME = .;
+BASE_NAME = task20;
+SEED = 1398349765;
+WORKER_SEED = 1398349765;
+DISORDER_SEED = 1398349765;
+start diagonalization... done
+Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
+[results]
+Binder Ratio of Magnetization: 0.648435 +/- inf
+Binder Ratio of Staggered Magnetization: 0.73053 +/- inf
+Dimension of Matrix: 16 +/- inf
+Energy: -2.87296 +/- inf
+Energy Density: -0.718241 +/- inf
+Entropy: 0.583793 +/- inf
+Entropy Density: 0.145948 +/- inf
+Free Energy: -2.93134 +/- inf
+Free Energy Density: -0.732835 +/- inf
+Ground State Energy: -2.9 +/- inf
+Ground State Energy Density: -0.725 +/- inf
+Inverse Temperature: 10 +/- inf
+Local Magnetization at Site 0: 0.317202 +/- inf
+Local Magnetization at Site 1: 0.317202 +/- inf
+Local Magnetization at Site 2: 0.317202 +/- inf
+Local Magnetization at Site 3: 0.317202 +/- inf
+Magnetization: 1.26881 +/- inf
+Magnetization Density: 0.317202 +/- inf
+Magnetization Density^2: 0.112913 +/- inf
+Magnetization Density^4: 0.0196617 +/- inf
+Magnetization^2: 1.80661 +/- inf
+Magnetization^4: 5.0334 +/- inf
+Number of Sites: 4 +/- inf
+Partition Function Coefficient #0: 16 +/- inf
+Partition Function Coefficient #1: 0 +/- inf
+Partition Function Coefficient #2: 34.88 +/- inf
+Partition Function Coefficient #3: -13.44 +/- inf
+Partition Function Coefficient #4: 33.5502 +/- inf
+Specific Heat: 0.0524356 +/- inf
+Staggered Magnetization: 0 +/- inf
+Staggered Magnetization Density: 0 +/- inf
+Staggered Magnetization Density^2: 0.0457032 +/- inf
+Staggered Magnetization Density^4: 0.00285927 +/- inf
+Staggered Magnetization^2: 0.731251 +/- inf
+Staggered Magnetization^4: 0.731973 +/- inf
+Staggered Susceptibility: 0.183022 +/- inf
+Susceptibility: 4.51652 +/- inf
+Temperature: 0.1 +/- inf
+Volume: 4 +/- inf
+|Magnetization Density|: 0.317202 +/- inf
+|Magnetization|: 1.26881 +/- inf
+|Staggered Magnetization Density|: 0.182783 +/- inf
+|Staggered Magnetization|: 0.731131 +/- inf
+[input parameters]
+LATTICE = "chain lattice";
+MODEL = spin;
+L = 4;
+J = 1;
+T = 0.1;
+ALGORITHM = diagonalization;
+h = 2.0;
+DIR_NAME = .;
+BASE_NAME = task21;
+SEED = 1398349765;
+WORKER_SEED = 1398349765;
+DISORDER_SEED = 1398349765;
+start diagonalization... done
+Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
+[results]
+Binder Ratio of Magnetization: 0.735267 +/- inf
+Binder Ratio of Staggered Magnetization: 0.49989 +/- inf
+Dimension of Matrix: 16 +/- inf
+Energy: -2.99993 +/- inf
+Energy Density: -0.749983 +/- inf
+Entropy: 0.693896 +/- inf
+Entropy Density: 0.173474 +/- inf
+Free Energy: -3.06932 +/- inf
+Free Energy Density: -0.76733 +/- inf
+Ground State Energy: -3 +/- inf
+Ground State Energy Density: -0.75 +/- inf
+Inverse Temperature: 10 +/- inf
+Local Magnetization at Site 0: 0.374986 +/- inf
+Local Magnetization at Site 1: 0.374986 +/- inf
+Local Magnetization at Site 2: 0.374986 +/- inf
+Local Magnetization at Site 3: 0.374986 +/- inf
+Magnetization: 1.49994 +/- inf
+Magnetization Density: 0.374986 +/- inf
+Magnetization Density^2: 0.156242 +/- inf
+Magnetization Density^4: 0.033201 +/- inf
+Magnetization^2: 2.49988 +/- inf
+Magnetization^4: 8.49947 +/- inf
+Number of Sites: 4 +/- inf
+Partition Function Coefficient #0: 16 +/- inf
+Partition Function Coefficient #1: 0 +/- inf
+Partition Function Coefficient #2: 38 +/- inf
+Partition Function Coefficient #3: -15 +/- inf
+Partition Function Coefficient #4: 39.6667 +/- inf
+Specific Heat: 0.00170247 +/- inf
+Staggered Magnetization: 0 +/- inf
+Staggered Magnetization Density: 0 +/- inf
+Staggered Magnetization Density^2: 0.0312545 +/- inf
+Staggered Magnetization Density^4: 0.00195412 +/- inf
+Staggered Magnetization^2: 0.500072 +/- inf
+Staggered Magnetization^4: 0.500253 +/- inf
+Staggered Susceptibility: 0.125135 +/- inf
+Susceptibility: 6.24969 +/- inf
+Temperature: 0.1 +/- inf
+Volume: 4 +/- inf
+|Magnetization Density|: 0.374986 +/- inf
+|Magnetization|: 1.49994 +/- inf
+|Staggered Magnetization Density|: 0.12501 +/- inf
+|Staggered Magnetization|: 0.500042 +/- inf
+[input parameters]
+LATTICE = "chain lattice";
+MODEL = spin;
+L = 4;
+J = 1;
+T = 0.1;
+ALGORITHM = diagonalization;
+h = 2.1;
+DIR_NAME = .;
+BASE_NAME = task22;
+SEED = 1398349766;
+WORKER_SEED = 1398349766;
+DISORDER_SEED = 1398349766;
+start diagonalization... done
+Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
+[results]
+Binder Ratio of Magnetization: 0.852107 +/- inf
+Binder Ratio of Staggered Magnetization: 0.268934 +/- inf
+Dimension of Matrix: 16 +/- inf
+Energy: -3.17307 +/- inf
+Energy Density: -0.793269 +/- inf
+Entropy: 0.582547 +/- inf
+Entropy Density: 0.145637 +/- inf
+Free Energy: -3.23133 +/- inf
+Free Energy Density: -0.807832 +/- inf
+Ground State Energy: -3.2 +/- inf
+Ground State Energy Density: -0.8 +/- inf
+Inverse Temperature: 10 +/- inf
+Local Magnetization at Site 0: 0.432758 +/- inf
+Local Magnetization at Site 1: 0.432758 +/- inf
+Local Magnetization at Site 2: 0.432758 +/- inf
+Local Magnetization at Site 3: 0.432758 +/- inf
+Magnetization: 1.73103 +/- inf
+Magnetization Density: 0.432758 +/- inf
+Magnetization Density^2: 0.199569 +/- inf
+Magnetization Density^4: 0.0467405 +/- inf
+Magnetization^2: 3.19311 +/- inf
+Magnetization^4: 11.9656 +/- inf
+Number of Sites: 4 +/- inf
+Partition Function Coefficient #0: 16 +/- inf
+Partition Function Coefficient #1: 0 +/- inf
+Partition Function Coefficient #2: 41.28 +/- inf
+Partition Function Coefficient #3: -16.64 +/- inf
+Partition Function Coefficient #4: 46.6435 +/- inf
+Specific Heat: 0.0500092 +/- inf
+Staggered Magnetization: 0 +/- inf
+Staggered Magnetization Density: 0 +/- inf
+Staggered Magnetization Density^2: 0.0168106 +/- inf
+Staggered Magnetization Density^4: 0.0010508 +/- inf
+Staggered Magnetization^2: 0.26897 +/- inf
+Staggered Magnetization^4: 0.269006 +/- inf
+Staggered Susceptibility: 0.0673004 +/- inf
+Susceptibility: 7.98277 +/- inf
+Temperature: 0.1 +/- inf
+Volume: 4 +/- inf
+|Magnetization Density|: 0.432758 +/- inf
+|Magnetization|: 1.73103 +/- inf
+|Staggered Magnetization Density|: 0.067241 +/- inf
+|Staggered Magnetization|: 0.268964 +/- inf
+[input parameters]
+LATTICE = "chain lattice";
+MODEL = spin;
+L = 4;
+J = 1;
+T = 0.1;
+ALGORITHM = diagonalization;
+h = 2.2;
+DIR_NAME = .;
+BASE_NAME = task23;
+SEED = 1398349766;
+WORKER_SEED = 1398349766;
+DISORDER_SEED = 1398349766;
+start diagonalization... done
+Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
+[results]
+Binder Ratio of Magnetization: 0.933505 +/- inf
+Binder Ratio of Staggered Magnetization: 0.119208 +/- inf
+Dimension of Matrix: 16 +/- inf
+Energy: -3.37615 +/- inf
+Energy Density: -0.844036 +/- inf
+Entropy: 0.365483 +/- inf
+Entropy Density: 0.0913707 +/- inf
+Free Energy: -3.41269 +/- inf
+Free Energy Density: -0.853173 +/- inf
+Ground State Energy: -3.4 +/- inf
+Ground State Energy Density: -0.85 +/- inf
+Inverse Temperature: 10 +/- inf
+Local Magnetization at Site 0: 0.470197 +/- inf
+Local Magnetization at Site 1: 0.470197 +/- inf
+Local Magnetization at Site 2: 0.470197 +/- inf
+Local Magnetization at Site 3: 0.470197 +/- inf
+Magnetization: 1.88079 +/- inf
+Magnetization Density: 0.470197 +/- inf
+Magnetization Density^2: 0.227647 +/- inf
+Magnetization Density^4: 0.0555149 +/- inf
+Magnetization^2: 3.64236 +/- inf
+Magnetization^4: 14.2118 +/- inf
+Number of Sites: 4 +/- inf
+Partition Function Coefficient #0: 16 +/- inf
+Partition Function Coefficient #1: 8.88178e-16 +/- inf
+Partition Function Coefficient #2: 44.72 +/- inf
+Partition Function Coefficient #3: -18.36 +/- inf
+Partition Function Coefficient #4: 54.5627 +/- inf
+Specific Heat: 0.105401 +/- inf
+Staggered Magnetization: 0 +/- inf
+Staggered Magnetization Density: 0 +/- inf
+Staggered Magnetization Density^2: 0.0074509 +/- inf
+Staggered Magnetization Density^4: 0.000465704 +/- inf
+Staggered Magnetization^2: 0.119214 +/- inf
+Staggered Magnetization^4: 0.11922 +/- inf
+Staggered Susceptibility: 0.0298284 +/- inf
+Susceptibility: 9.1059 +/- inf
+Temperature: 0.1 +/- inf
+Volume: 4 +/- inf
+|Magnetization Density|: 0.470197 +/- inf
+|Magnetization|: 1.88079 +/- inf
+|Staggered Magnetization Density|: 0.0298033 +/- inf
+|Staggered Magnetization|: 0.119213 +/- inf
+[input parameters]
+LATTICE = "chain lattice";
+MODEL = spin;
+L = 4;
+J = 1;
+T = 0.1;
+ALGORITHM = diagonalization;
+h = 2.3;
+DIR_NAME = .;
+BASE_NAME = task24;
+SEED = 1398349766;
+WORKER_SEED = 1398349766;
+DISORDER_SEED = 1398349766;
+start diagonalization... done
+Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
+[results]
+Binder Ratio of Magnetization: 0.973403 +/- inf
+Binder Ratio of Staggered Magnetization: 0.0474294 +/- inf
+Dimension of Matrix: 16 +/- inf
+Energy: -3.58577 +/- inf
+Energy Density: -0.896442 +/- inf
+Entropy: 0.190926 +/- inf
+Entropy Density: 0.0477316 +/- inf
+Free Energy: -3.60486 +/- inf
+Free Energy Density: -0.901215 +/- inf
+Ground State Energy: -3.6 +/- inf
+Ground State Energy Density: -0.9 +/- inf
+Inverse Temperature: 10 +/- inf
+Local Magnetization at Site 0: 0.488142 +/- inf
+Local Magnetization at Site 1: 0.488142 +/- inf
+Local Magnetization at Site 2: 0.488142 +/- inf
+Local Magnetization at Site 3: 0.488142 +/- inf
+Magnetization: 1.95257 +/- inf
+Magnetization Density: 0.488142 +/- inf
+Magnetization Density^2: 0.241107 +/- inf
+Magnetization Density^4: 0.0597209 +/- inf
+Magnetization^2: 3.85771 +/- inf
+Magnetization^4: 15.2885 +/- inf
+Number of Sites: 4 +/- inf
+Partition Function Coefficient #0: 16 +/- inf
+Partition Function Coefficient #1: 0 +/- inf
+Partition Function Coefficient #2: 48.32 +/- inf
+Partition Function Coefficient #3: -20.16 +/- inf
+Partition Function Coefficient #4: 63.5102 +/- inf
+Specific Heat: 0.101832 +/- inf
+Staggered Magnetization: 0 +/- inf
+Staggered Magnetization Density: 0 +/- inf
+Staggered Magnetization Density^2: 0.00296439 +/- inf
+Staggered Magnetization Density^4: 0.000185278 +/- inf
+Staggered Magnetization^2: 0.0474303 +/- inf
+Staggered Magnetization^4: 0.0474311 +/- inf
+Staggered Susceptibility: 0.0118673 +/- inf
+Susceptibility: 9.64427 +/- inf
+Temperature: 0.1 +/- inf
+Volume: 4 +/- inf
+|Magnetization Density|: 0.488142 +/- inf
+|Magnetization|: 1.95257 +/- inf
+|Staggered Magnetization Density|: 0.0118575 +/- inf
+|Staggered Magnetization|: 0.0474301 +/- inf
+[input parameters]
+LATTICE = "chain lattice";
+MODEL = spin;
+L = 4;
+J = 1;
+T = 0.1;
+ALGORITHM = diagonalization;
+h = 2.4;
+DIR_NAME = .;
+BASE_NAME = task25;
+SEED = 1398349767;
+WORKER_SEED = 1398349767;
+DISORDER_SEED = 1398349767;
+start diagonalization... done
+Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
+[results]
+Binder Ratio of Magnetization: 0.989893 +/- inf
+Binder Ratio of Staggered Magnetization: 0.0179877 +/- inf
+Dimension of Matrix: 16 +/- inf
+Energy: -3.7928 +/- inf
+Energy Density: -0.948201 +/- inf
+Entropy: 0.0901194 +/- inf
+Entropy Density: 0.0225299 +/- inf
+Free Energy: -3.80182 +/- inf
+Free Energy Density: -0.950454 +/- inf
+Ground State Energy: -3.8 +/- inf
+Ground State Energy Density: -0.95 +/- inf
+Inverse Temperature: 10 +/- inf
+Local Magnetization at Site 0: 0.495503 +/- inf
+Local Magnetization at Site 1: 0.495503 +/- inf
+Local Magnetization at Site 2: 0.495503 +/- inf
+Local Magnetization at Site 3: 0.495503 +/- inf
+Magnetization: 1.98201 +/- inf
+Magnetization Density: 0.495503 +/- inf
+Magnetization Density^2: 0.246627 +/- inf
+Magnetization Density^4: 0.061446 +/- inf
+Magnetization^2: 3.94604 +/- inf
+Magnetization^4: 15.7302 +/- inf
+Number of Sites: 4 +/- inf
+Partition Function Coefficient #0: 16 +/- inf
+Partition Function Coefficient #1: 0 +/- inf
+Partition Function Coefficient #2: 52.08 +/- inf
+Partition Function Coefficient #3: -22.04 +/- inf
+Partition Function Coefficient #4: 73.576 +/- inf
+Specific Heat: 0.0707311 +/- inf
+Staggered Magnetization: 0 +/- inf
+Staggered Magnetization Density: 0 +/- inf
+Staggered Magnetization Density^2: 0.00112424 +/- inf
+Staggered Magnetization Density^4: 7.02655e-05 +/- inf
+Staggered Magnetization^2: 0.0179879 +/- inf
+Staggered Magnetization^4: 0.017988 +/- inf
+Staggered Susceptibility: 0.00450065 +/- inf
+Susceptibility: 9.86509 +/- inf
+Temperature: 0.1 +/- inf
+Volume: 4 +/- inf
+|Magnetization Density|: 0.495503 +/- inf
+|Magnetization|: 1.98201 +/- inf
+|Staggered Magnetization Density|: 0.00449696 +/- inf
+|Staggered Magnetization|: 0.0179878 +/- inf
+[input parameters]
+LATTICE = "chain lattice";
+MODEL = spin;
+L = 4;
+J = 1;
+T = 0.1;
+ALGORITHM = diagonalization;
+h = 2.5;
+DIR_NAME = .;
+BASE_NAME = task26;
+SEED = 1398349767;
+WORKER_SEED = 1398349767;
+DISORDER_SEED = 1398349767;
+start diagonalization... done
+Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
+[results]
+Binder Ratio of Magnetization: 0.996237 +/- inf
+Binder Ratio of Staggered Magnetization: 0.00669344 +/- inf
+Dimension of Matrix: 16 +/- inf
+Energy: -3.99665 +/- inf
+Energy Density: -0.999163 +/- inf
+Entropy: 0.0401893 +/- inf
+Entropy Density: 0.0100473 +/- inf
+Free Energy: -4.00067 +/- inf
+Free Energy Density: -1.00017 +/- inf
+Ground State Energy: -4 +/- inf
+Ground State Energy Density: -1 +/- inf
+Inverse Temperature: 10 +/- inf
+Local Magnetization at Site 0: 0.498327 +/- inf
+Local Magnetization at Site 1: 0.498327 +/- inf
+Local Magnetization at Site 2: 0.498327 +/- inf
+Local Magnetization at Site 3: 0.498327 +/- inf
+Magnetization: 1.99331 +/- inf
+Magnetization Density: 0.498327 +/- inf
+Magnetization Density^2: 0.248745 +/- inf
+Magnetization Density^4: 0.0621078 +/- inf
+Magnetization^2: 3.97992 +/- inf
+Magnetization^4: 15.8996 +/- inf
+Number of Sites: 4 +/- inf
+Partition Function Coefficient #0: 16 +/- inf
+Partition Function Coefficient #1: 0 +/- inf
+Partition Function Coefficient #2: 56 +/- inf
+Partition Function Coefficient #3: -24 +/- inf
+Partition Function Coefficient #4: 84.8542 +/- inf
+Specific Heat: 0.0415846 +/- inf
+Staggered Magnetization: 0 +/- inf
+Staggered Magnetization Density: 0 +/- inf
+Staggered Magnetization Density^2: 0.000418341 +/- inf
+Staggered Magnetization Density^4: 2.61464e-05 +/- inf
+Staggered Magnetization^2: 0.00669346 +/- inf
+Staggered Magnetization^4: 0.00669348 +/- inf
+Staggered Susceptibility: 0.00167473 +/- inf
+Susceptibility: 9.9498 +/- inf
+Temperature: 0.1 +/- inf
+Volume: 4 +/- inf
+|Magnetization Density|: 0.498327 +/- inf
+|Magnetization|: 1.99331 +/- inf
+|Staggered Magnetization Density|: 0.00167336 +/- inf
+|Staggered Magnetization|: 0.00669346 +/- inf
+[input parameters]
+LATTICE = "chain lattice";
+MODEL = spin;
+L = 4;
+J = 1;
+T = 0.1;
+ALGORITHM = diagonalization;
+h = 2.6;
+DIR_NAME = .;
+BASE_NAME = task27;
+SEED = 1398349768;
+WORKER_SEED = 1398349768;
+DISORDER_SEED = 1398349768;
+start diagonalization... done
+Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
+[results]
+Binder Ratio of Magnetization: 0.998609 +/- inf
+Binder Ratio of Staggered Magnetization: 0.00247285 +/- inf
+Dimension of Matrix: 16 +/- inf
+Energy: -4.19852 +/- inf
+Energy Density: -1.04963 +/- inf
+Entropy: 0.0173152 +/- inf
+Entropy Density: 0.00432881 +/- inf
+Free Energy: -4.20025 +/- inf
+Free Energy Density: -1.05006 +/- inf
+Ground State Energy: -4.2 +/- inf
+Ground State Energy Density: -1.05 +/- inf
+Inverse Temperature: 10 +/- inf
+Local Magnetization at Site 0: 0.499382 +/- inf
+Local Magnetization at Site 1: 0.499382 +/- inf
+Local Magnetization at Site 2: 0.499382 +/- inf
+Local Magnetization at Site 3: 0.499382 +/- inf
+Magnetization: 1.99753 +/- inf
+Magnetization Density: 0.499382 +/- inf
+Magnetization Density^2: 0.249536 +/- inf
+Magnetization Density^4: 0.0623551 +/- inf
+Magnetization^2: 3.99258 +/- inf
+Magnetization^4: 15.9629 +/- inf
+Number of Sites: 4 +/- inf
+Partition Function Coefficient #0: 16 +/- inf
+Partition Function Coefficient #1: 0 +/- inf
+Partition Function Coefficient #2: 60.08 +/- inf
+Partition Function Coefficient #3: -26.04 +/- inf
+Partition Function Coefficient #4: 97.4427 +/- inf
+Specific Heat: 0.022213 +/- inf
+Staggered Magnetization: 0 +/- inf
+Staggered Magnetization Density: 0 +/- inf
+Staggered Magnetization Density^2: 0.000154553 +/- inf
+Staggered Magnetization Density^4: 9.65957e-06 +/- inf
+Staggered Magnetization^2: 0.00247285 +/- inf
+Staggered Magnetization^4: 0.00247285 +/- inf
+Staggered Susceptibility: 0.000618717 +/- inf
+Susceptibility: 9.98145 +/- inf
+Temperature: 0.1 +/- inf
+Volume: 4 +/- inf
+|Magnetization Density|: 0.499382 +/- inf
+|Magnetization|: 1.99753 +/- inf
+|Staggered Magnetization Density|: 0.000618212 +/- inf
+|Staggered Magnetization|: 0.00247285 +/- inf
+[input parameters]
+LATTICE = "chain lattice";
+MODEL = spin;
+L = 4;
+J = 1;
+T = 0.1;
+ALGORITHM = diagonalization;
+h = 2.7;
+DIR_NAME = .;
+BASE_NAME = task28;
+SEED = 1398349768;
+WORKER_SEED = 1398349768;
+DISORDER_SEED = 1398349768;
+start diagonalization... done
+Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
+[results]
+Binder Ratio of Magnetization: 0.999488 +/- inf
+Binder Ratio of Staggered Magnetization: 0.000911134 +/- inf
+Dimension of Matrix: 16 +/- inf
+Energy: -4.39936 +/- inf
+Energy Density: -1.09984 +/- inf
+Entropy: 0.00729031 +/- inf
+Entropy Density: 0.00182258 +/- inf
+Free Energy: -4.40009 +/- inf
+Free Energy Density: -1.10002 +/- inf
+Ground State Energy: -4.4 +/- inf
+Ground State Energy Density: -1.1 +/- inf
+Inverse Temperature: 10 +/- inf
+Local Magnetization at Site 0: 0.499772 +/- inf
+Local Magnetization at Site 1: 0.499772 +/- inf
+Local Magnetization at Site 2: 0.499772 +/- inf
+Local Magnetization at Site 3: 0.499772 +/- inf
+Magnetization: 1.99909 +/- inf
+Magnetization Density: 0.499772 +/- inf
+Magnetization Density^2: 0.249829 +/- inf
+Magnetization Density^4: 0.0624466 +/- inf
+Magnetization^2: 3.99727 +/- inf
+Magnetization^4: 15.9863 +/- inf
+Number of Sites: 4 +/- inf
+Partition Function Coefficient #0: 16 +/- inf
+Partition Function Coefficient #1: 0 +/- inf
+Partition Function Coefficient #2: 64.32 +/- inf
+Partition Function Coefficient #3: -28.16 +/- inf
+Partition Function Coefficient #4: 111.444 +/- inf
+Specific Heat: 0.0111562 +/- inf
+Staggered Magnetization: 0 +/- inf
+Staggered Magnetization Density: 0 +/- inf
+Staggered Magnetization Density^2: 5.69459e-05 +/- inf
+Staggered Magnetization Density^4: 3.55912e-06 +/- inf
+Staggered Magnetization^2: 0.000911134 +/- inf
+Staggered Magnetization^4: 0.000911134 +/- inf
+Staggered Susceptibility: 0.00022797 +/- inf
+Susceptibility: 9.99317 +/- inf
+Temperature: 0.1 +/- inf
+Volume: 4 +/- inf
+|Magnetization Density|: 0.499772 +/- inf
+|Magnetization|: 1.99909 +/- inf
+|Staggered Magnetization Density|: 0.000227783 +/- inf
+|Staggered Magnetization|: 0.000911134 +/- inf
+[input parameters]
+LATTICE = "chain lattice";
+MODEL = spin;
+L = 4;
+J = 1;
+T = 0.1;
+ALGORITHM = diagonalization;
+h = 2.8;
+DIR_NAME = .;
+BASE_NAME = task29;
+SEED = 1398349768;
+WORKER_SEED = 1398349768;
+DISORDER_SEED = 1398349768;
+start diagonalization... done
+Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
+[results]
+Binder Ratio of Magnetization: 0.999811 +/- inf
+Binder Ratio of Staggered Magnetization: 0.000335381 +/- inf
+Dimension of Matrix: 16 +/- inf
+Energy: -4.59973 +/- inf
+Energy Density: -1.14993 +/- inf
+Entropy: 0.00301879 +/- inf
+Entropy Density: 0.000754697 +/- inf
+Free Energy: -4.60003 +/- inf
+Free Energy Density: -1.15001 +/- inf
+Ground State Energy: -4.6 +/- inf
+Ground State Energy Density: -1.15 +/- inf
+Inverse Temperature: 10 +/- inf
+Local Magnetization at Site 0: 0.499916 +/- inf
+Local Magnetization at Site 1: 0.499916 +/- inf
+Local Magnetization at Site 2: 0.499916 +/- inf
+Local Magnetization at Site 3: 0.499916 +/- inf
+Magnetization: 1.99966 +/- inf
+Magnetization Density: 0.499916 +/- inf
+Magnetization Density^2: 0.249937 +/- inf
+Magnetization Density^4: 0.0624803 +/- inf
+Magnetization^2: 3.99899 +/- inf
+Magnetization^4: 15.995 +/- inf
+Number of Sites: 4 +/- inf
+Partition Function Coefficient #0: 16 +/- inf
+Partition Function Coefficient #1: 0 +/- inf
+Partition Function Coefficient #2: 68.72 +/- inf
+Partition Function Coefficient #3: -30.36 +/- inf
+Partition Function Coefficient #4: 126.963 +/- inf
+Specific Heat: 0.00536627 +/- inf
+Staggered Magnetization: 0 +/- inf
+Staggered Magnetization Density: 0 +/- inf
+Staggered Magnetization Density^2: 2.09613e-05 +/- inf
+Staggered Magnetization Density^4: 1.31008e-06 +/- inf
+Staggered Magnetization^2: 0.000335381 +/- inf
+Staggered Magnetization^4: 0.000335381 +/- inf
+Staggered Susceptibility: 8.39137e-05 +/- inf
+Susceptibility: 9.99748 +/- inf
+Temperature: 0.1 +/- inf
+Volume: 4 +/- inf
+|Magnetization Density|: 0.499916 +/- inf
+|Magnetization|: 1.99966 +/- inf
+|Staggered Magnetization Density|: 8.38451e-05 +/- inf
+|Staggered Magnetization|: 0.000335381 +/- inf
+[input parameters]
+LATTICE = "chain lattice";
+MODEL = spin;
+L = 4;
+J = 1;
+T = 0.1;
+ALGORITHM = diagonalization;
+h = 2.9;
+DIR_NAME = .;
+BASE_NAME = task30;
+SEED = 1398349769;
+WORKER_SEED = 1398349769;
+DISORDER_SEED = 1398349769;
+start diagonalization... done
+Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
+[results]
+Binder Ratio of Magnetization: 0.999931 +/- inf
+Binder Ratio of Staggered Magnetization: 0.000123406 +/- inf
+Dimension of Matrix: 16 +/- inf
+Energy: -4.79989 +/- inf
+Energy Density: -1.19997 +/- inf
+Entropy: 0.00123418 +/- inf
+Entropy Density: 0.000308544 +/- inf
+Free Energy: -4.80001 +/- inf
+Free Energy Density: -1.2 +/- inf
+Ground State Energy: -4.8 +/- inf
+Ground State Energy Density: -1.2 +/- inf
+Inverse Temperature: 10 +/- inf
+Local Magnetization at Site 0: 0.499969 +/- inf
+Local Magnetization at Site 1: 0.499969 +/- inf
+Local Magnetization at Site 2: 0.499969 +/- inf
+Local Magnetization at Site 3: 0.499969 +/- inf
+Magnetization: 1.99988 +/- inf
+Magnetization Density: 0.499969 +/- inf
+Magnetization Density^2: 0.249977 +/- inf
+Magnetization Density^4: 0.0624928 +/- inf
+Magnetization^2: 3.99963 +/- inf
+Magnetization^4: 15.9981 +/- inf
+Number of Sites: 4 +/- inf
+Partition Function Coefficient #0: 16 +/- inf
+Partition Function Coefficient #1: 0 +/- inf
+Partition Function Coefficient #2: 73.28 +/- inf
+Partition Function Coefficient #3: -32.64 +/- inf
+Partition Function Coefficient #4: 144.11 +/- inf
+Specific Heat: 0.00249944 +/- inf
+Staggered Magnetization: 0 +/- inf
+Staggered Magnetization Density: 0 +/- inf
+Staggered Magnetization Density^2: 7.71286e-06 +/- inf
+Staggered Magnetization Density^4: 4.82054e-07 +/- inf
+Staggered Magnetization^2: 0.000123406 +/- inf
+Staggered Magnetization^4: 0.000123406 +/- inf
+Staggered Susceptibility: 3.08767e-05 +/- inf
+Susceptibility: 9.99907 +/- inf
+Temperature: 0.1 +/- inf
+Volume: 4 +/- inf
+|Magnetization Density|: 0.499969 +/- inf
+|Magnetization|: 1.99988 +/- inf
+|Staggered Magnetization Density|: 3.08514e-05 +/- inf
+|Staggered Magnetization|: 0.000123406 +/- inf
+[input parameters]
+LATTICE = "chain lattice";
+MODEL = spin;
+L = 4;
+J = 1;
+T = 0.1;
+ALGORITHM = diagonalization;
+h = 3.0;
+DIR_NAME = .;
+BASE_NAME = task31;
+SEED = 1398349769;
+WORKER_SEED = 1398349769;
+DISORDER_SEED = 1398349769;
+start diagonalization... done
+Warning: unknown evaluator: "diagonalization".  The only evaluator "loop" will be used instead.
+[results]
+Binder Ratio of Magnetization: 0.999974 +/- inf
+Binder Ratio of Staggered Magnetization: 4.5402e-05 +/- inf
+Dimension of Matrix: 16 +/- inf
+Energy: -4.99995 +/- inf
+Energy Density: -1.24999 +/- inf
+Entropy: 0.000499464 +/- inf
+Entropy Density: 0.000124866 +/- inf
+Free Energy: -5 +/- inf
+Free Energy Density: -1.25 +/- inf
+Ground State Energy: -5 +/- inf
+Ground State Energy Density: -1.25 +/- inf
+Inverse Temperature: 10 +/- inf
+Local Magnetization at Site 0: 0.499989 +/- inf
+Local Magnetization at Site 1: 0.499989 +/- inf
+Local Magnetization at Site 2: 0.499989 +/- inf
+Local Magnetization at Site 3: 0.499989 +/- inf
+Magnetization: 1.99995 +/- inf
+Magnetization Density: 0.499989 +/- inf
+Magnetization Density^2: 0.249991 +/- inf
+Magnetization Density^4: 0.0624973 +/- inf
+Magnetization^2: 3.99986 +/- inf
+Magnetization^4: 15.9993 +/- inf
+Number of Sites: 4 +/- inf
+Partition Function Coefficient #0: 16 +/- inf
+Partition Function Coefficient #1: 0 +/- inf
+Partition Function Coefficient #2: 78 +/- inf
+Partition Function Coefficient #3: -35 +/- inf
+Partition Function Coefficient #4: 163 +/- inf
+Specific Heat: 0.00113531 +/- inf
+Staggered Magnetization: 0 +/- inf
+Staggered Magnetization Density: 0 +/- inf
+Staggered Magnetization Density^2: 2.83762e-06 +/- inf
+Staggered Magnetization Density^4: 1.77352e-07 +/- inf
+Staggered Magnetization^2: 4.5402e-05 +/- inf
+Staggered Magnetization^4: 4.5402e-05 +/- inf
+Staggered Susceptibility: 1.13598e-05 +/- inf
+Susceptibility: 9.99966 +/- inf
+Temperature: 0.1 +/- inf
+Volume: 4 +/- inf
+|Magnetization Density|: 0.499989 +/- inf
+|Magnetization|: 1.99995 +/- inf
+|Staggered Magnetization Density|: 1.13505e-05 +/- inf
+|Staggered Magnetization|: 4.5402e-05 +/- inf
