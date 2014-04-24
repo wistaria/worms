@@ -34,6 +34,14 @@ You have to specify the path to the Boost include files by using -DBoost_ROOT_DI
  - Release 1.0 (2013/09/12)
      * Initial version
 
+ - Release
+     * Fixed generation of transition matrix under the magnetic field
+     * Updated logic to optimize number of worms per MCS
+     * Added energy measurement
+     * Added timer
+     * Updated documents
+     * Added check scripts and tests
+
 ## References
 
  - O.F. Syljuasen and A.W. Sandvik, "Quantum Monte Carlo with directed loops," Phys. Rev. E 66, 046701 (2002).
