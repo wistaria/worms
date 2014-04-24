@@ -2,7 +2,7 @@
 *
 * worms: a simple worm code
 *
-* Copyright (C) 2013 by Synge Todo <wistaria@comp-phys.org>
+* Copyright (C) 2013-2014 by Synge Todo <wistaria@comp-phys.org>
 *
 * Distributed under the Boost Software License, Version 1.0. (See accompanying
 * file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -29,7 +29,7 @@
 
 int main(int argc, char* argv[]) {
   std::cerr << "worms: a simple worm code (release " WORMS_VERSION ")\n"
-            << "  Copyright (C) 2013 by Synge Todo <wistaria@comp-phys.org>\n"
+            << "  Copyright (C) 2013-2014 by Synge Todo <wistaria@comp-phys.org>\n"
             << "  " WORMS_URL "\n\n";
   options opt(argc, argv, 16, 1.0);
   if (!opt.valid) std::exit(-1);
@@ -77,7 +77,7 @@ int main(int argc, char* argv[]) {
   std::vector<boost::tuple<int, int, double> > wstart;
 
   // worm statistics
-  int wcount = 0;
+  double wcount = 0;
   double wlength = 0;
   
   // temporaries
@@ -145,7 +145,7 @@ int main(int argc, char* argv[]) {
       boost::tie(site, stp, time) = *wsi;
       int stp_start = stp;
       double time_start = time;
-      wcount++;
+      wcount += 1;
       wlength += (direc == 0) ? time : -time;
       while (true) {
         stp = (direc == 0) ? stpoints[stp].prev() : stpoints[stp].next();
@@ -191,11 +191,11 @@ int main(int argc, char* argv[]) {
       smag2 << ms * ms;
     }
     
-    if (mcs < opt.therm / 2) {
+    if (mcs <= opt.therm / 2) {
       wdensity = opt.L / (wlength / wcount);
-      if (mcs == opt.therm / 4) {
-        wcount = 0;
-        wlength = 0;
+      if (mcs % (opt.therm / 8) == 0) {
+        wcount /= 2;
+        wlength /= 2;
       }
     }
     if (mcs == opt.therm / 2)
