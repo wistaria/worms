@@ -34,7 +34,7 @@ You have to specify the path to the Boost include files by using -DBoost_ROOT_DI
  - Release 1.0 (2013/09/12)
      * Initial version
 
- - Release
+ - Release 1.1 (2014/02/24)
      * Fixed generation of transition matrix under the magnetic field
      * Updated logic to optimize number of worms per MCS
      * Added energy measurement
