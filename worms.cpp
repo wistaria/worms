@@ -59,6 +59,7 @@ int main(int argc, char* argv[]) {
 
   // Hamiltonian operator
   heisenberg_operator op(opt.H, /* coordination number = */ 2);
+  typedef heisenberg_operator::spin_state_t spin_state_t;
   double offset = 0; // >= 0
   weight wt(op, offset);
 
@@ -67,7 +68,7 @@ int main(int argc, char* argv[]) {
   std::vector<double> accept(4);
   for (int c0 = 0; c0 < 2; ++c0)
     for (int c1 = 0; c1 < 2; ++c1)
-      accept[spin_state::c2u(c0, c1)] = wt[spin_state::c2p(c0, c1, c0, c1)] / lambda;
+      accept[spin_state_t::c2u(c0, c1)] = wt[spin_state_t::c2p(c0, c1, c0, c1)] / lambda;
 
   // table for worm update
   outgoing_weight ogwt(wt);
@@ -119,17 +120,17 @@ int main(int argc, char* argv[]) {
           int b = static_cast<int>(opt.L * random01());
           int s0 = lattice.source(b);
           int s1 = lattice.target(b);
-          int u = spin_state::c2u(current[s0], current[s1]);
+          int u = spin_state_t::c2u(current[s0], current[s1]);
           if (random01() < accept[u])
-            append_operator(s0, s1, spin_state::u2p(u, u), *tmi, operators, stpoints);
+            append_operator(s0, s1, spin_state_t::u2p(u, u), *tmi, operators, stpoints);
         }
         ++tmi;
       } else {
         if (opi->is_offdiagonal()) {
           // keep offdiagonal operator
           append_operator(*opi, operators, stpoints);
-          current[opi->site0()] = spin_state::p2c(opi->state(), 2);
-          current[opi->site1()] = spin_state::p2c(opi->state(), 3);
+          current[opi->site0()] = spin_state_t::p2c(opi->state(), 2);
+          current[opi->site1()] = spin_state_t::p2c(opi->state(), 3);
         }
         ++opi;
       }

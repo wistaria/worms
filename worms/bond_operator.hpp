@@ -16,6 +16,7 @@
 
 class bond_operator {
 public:
+  typedef spin_state<2, 2> spin_state_t;
   bond_operator() {}
   // generate diagonal operator
   bond_operator(int s0, int s1, int stp0, int stp1, int state, double t) :
@@ -26,9 +27,9 @@ public:
   int stp1() const { return stp1_; }
   double time() const { return time_; }
   int state() const { return state_; }
-  bool is_diagonal() const { return (spin_state::p2u(state_, 0) == spin_state::p2u(state_, 1)); }
+  bool is_diagonal() const { return (spin_state_t::p2u(state_, 0) == spin_state_t::p2u(state_, 1)); }
   bool is_offdiagonal() const { return !is_diagonal(); }
-  void flip_state(int leg) { state_ ^= spin_state::maskp(leg); }
+  void flip_state(int leg) { state_ ^= spin_state_t::maskp(leg); }
   void print(std::ostream& os) const {
     os << s0_ << ' ' << s1_ << ' ' << stp0_ << ' ' << stp1_ << ' ' << state_ << ' ' << time_;
   }

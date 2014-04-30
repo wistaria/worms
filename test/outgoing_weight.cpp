@@ -18,6 +18,7 @@
 
 #include "worms/heisenberg_operator.hpp"
 #include "worms/outgoing_weight.hpp"
+#include "worms/weight.hpp"
 
 BOOST_AUTO_TEST_CASE(test_outgoing_weight) {
   for (double h = 0; h < 3; h += 0.1) {

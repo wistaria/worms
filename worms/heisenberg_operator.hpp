@@ -18,29 +18,30 @@
 
 class heisenberg_operator {
 public:
+  typedef spin_state<2, 2> spin_state_t;
   heisenberg_operator(double h, int coord_num) : elements_(16, 0) {
-    elements_[spin_state::c2p(0, 0, 0, 0)] = 0.25 - h / coord_num;
-    elements_[spin_state::c2p(0, 1, 0, 1)] = -0.25;
-    elements_[spin_state::c2p(1, 0, 1, 0)] = -0.25;
-    elements_[spin_state::c2p(1, 1, 1, 1)] = 0.25 + h / coord_num;
-    elements_[spin_state::c2p(0, 1, 1, 0)] = -0.5;
-    elements_[spin_state::c2p(1, 0, 0, 1)] = -0.5;
+    elements_[spin_state_t::c2p(0, 0, 0, 0)] = 0.25 - h / coord_num;
+    elements_[spin_state_t::c2p(0, 1, 0, 1)] = -0.25;
+    elements_[spin_state_t::c2p(1, 0, 1, 0)] = -0.25;
+    elements_[spin_state_t::c2p(1, 1, 1, 1)] = 0.25 + h / coord_num;
+    elements_[spin_state_t::c2p(0, 1, 1, 0)] = -0.5;
+    elements_[spin_state_t::c2p(1, 0, 0, 1)] = -0.5;
   }
   double operator()(int s) const { return elements_[s]; }
   double operator()(int sp0, int sp1, int sn0, int sn1) const {
-    return elements_[spin_state::c2p(sp0, sp1, sn0, sn1)];
+    return elements_[spin_state_t::c2p(sp0, sp1, sn0, sn1)];
   }
   double max_diagonal() const {
-    return std::max(std::max(elements_[spin_state::c2p(0, 0, 0, 0)],
-                             elements_[spin_state::c2p(0, 1, 0, 1)]),
-                    std::max(elements_[spin_state::c2p(1, 0, 1, 0)],
-                             elements_[spin_state::c2p(1, 1, 1, 1)]));
+    return std::max(std::max(elements_[spin_state_t::c2p(0, 0, 0, 0)],
+                             elements_[spin_state_t::c2p(0, 1, 0, 1)]),
+                    std::max(elements_[spin_state_t::c2p(1, 0, 1, 0)],
+                             elements_[spin_state_t::c2p(1, 1, 1, 1)]));
   }
   double min_diagonal() const {
-    return std::min(std::min(elements_[spin_state::c2p(0, 0, 0, 0)],
-                             elements_[spin_state::c2p(0, 1, 0, 1)]),
-                    std::min(elements_[spin_state::c2p(1, 0, 1, 0)],
-                             elements_[spin_state::c2p(1, 1, 1, 1)]));
+    return std::min(std::min(elements_[spin_state_t::c2p(0, 0, 0, 0)],
+                             elements_[spin_state_t::c2p(0, 1, 0, 1)]),
+                    std::min(elements_[spin_state_t::c2p(1, 0, 1, 0)],
+                             elements_[spin_state_t::c2p(1, 1, 1, 1)]));
   }
 private:
   std::vector<double> elements_;
