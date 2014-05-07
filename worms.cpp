@@ -197,7 +197,7 @@ int main(int argc, char* argv[]) {
     }
     
     if (mcs <= opt.therm / 2) {
-      wdensity = opt.L / (wlength / wcount);
+      if (wcount > 0) wdensity = opt.L / (wlength / wcount);
       if (mcs % (opt.therm / 8) == 0) {
         wcount /= 2;
         wlength /= 2;
