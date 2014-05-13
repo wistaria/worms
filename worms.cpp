@@ -16,6 +16,7 @@
 #include "options.hpp"
 #include "worms/version.hpp"
 #include "worms/chain_lattice.hpp"
+//#include "worms/square_lattice.hpp"
 #include "worms/heisenberg_operator.hpp"
 #include "worms/operations.hpp"
 #include "worms/weight.hpp"
@@ -38,6 +39,7 @@ int main(int argc, char* argv[]) {
 
   // lattice
   chain_lattice lattice(opt.L);
+  //square_lattice lattice(opt.L);
   
   // random number generator
   typedef boost::mt19937 engine_t;
@@ -53,12 +55,12 @@ int main(int argc, char* argv[]) {
   bcl::observable smag2; // staggered magnetizetion^2
 
   // configuration
-  std::vector<int> spins(opt.L, 0 /* all up */);
+  std::vector<int> spins(lattice.num_sites(), 0 /* all up */);
   std::vector<bond_operator> operators, operators_p;
   std::vector<spacetime_point> stpoints;
 
   // Hamiltonian operator
-  heisenberg_operator op(opt.H, /* coordination number = */ 2);
+  heisenberg_operator op(opt.H, /* coordination number = */ lattice.coordination_num());
   typedef heisenberg_operator::spin_state_t spin_state_t;
   double offset = 0; // >= 0
   weight wt(op, offset);
@@ -77,7 +79,7 @@ int main(int argc, char* argv[]) {
   for (int c = 0; c < 16; ++c) markov.push_back(markov_t(bcl::st2010(), ogwt[c]));
 
   // weight for worm insertion
-  double wdensity = opt.L;
+  double wdensity = lattice.num_sites();
   std::vector<boost::tuple<int, int, double> > wstart;
 
   // worm statistics
@@ -86,13 +88,13 @@ int main(int argc, char* argv[]) {
   
   // temporaries
   std::vector<double> times;
-  std::vector<int> current(opt.L);
+  std::vector<int> current(lattice.num_sites());
 
   boost::timer tm;
   for (int mcs = 0; mcs < (opt.therm + opt.sweeps); ++mcs) {
     // diagonal update
-    double pstart = wdensity / (beta * opt.L * lambda + wdensity);
-    expdist_t expdist(beta * opt.L * lambda + wdensity);
+    double pstart = wdensity / (beta * lattice.num_bonds() * lambda + wdensity);
+    expdist_t expdist(beta * lattice.num_bonds() * lambda + wdensity);
     times.resize(0);
     double t = 0;
     while (t < 1) {
@@ -104,7 +106,7 @@ int main(int argc, char* argv[]) {
     operators_p.push_back(bond_operator(0, 0, 0, 0, 0, 1)); // sentinel
     std::copy(spins.begin(), spins.end(), current.begin());
     stpoints.resize(0);
-    for (int s = 0; s < opt.L; ++s) stpoints.push_back(spacetime_point::origin(s));
+    for (int s = 0; s < lattice.num_sites(); ++s) stpoints.push_back(spacetime_point::origin(s));
     wstart.resize(0);
     check_operators(lattice, spins, operators, stpoints);
     std::vector<double>::iterator tmi = times.begin();
@@ -113,11 +115,11 @@ int main(int argc, char* argv[]) {
       if (*tmi < opi->time()) {
         if (random01() < pstart) {
           // insert worm starting point
-          int s = static_cast<int>(opt.L * random01());
+          int s = static_cast<int>(lattice.num_sites() * random01());
           append_wstart(s, *tmi, stpoints, wstart);
         } else {
           // insert diagonal operator
-          int b = static_cast<int>(opt.L * random01());
+          int b = static_cast<int>(lattice.num_bonds() * random01());
           int s0 = lattice.source(b);
           int s1 = lattice.target(b);
           int u = spin_state_t::c2u(current[s0], current[s1]);
@@ -185,26 +187,26 @@ int main(int argc, char* argv[]) {
       ene << (lattice.num_bonds() * wt.offset() - operators.size() / beta) / lattice.num_sites();
       double mu = 0;
       double ms = 0;
-      for (int s = 0; s < opt.L; ++s) {
+      for (int s = 0; s < lattice.num_sites(); ++s) {
         mu += 0.5 - spins[s];
         ms += lattice.phase(s) * (0.5 - spins[s]);
       }
-      mu /= opt.L;
-      ms /= opt.L;
+      mu /= lattice.num_sites();
+      ms /= lattice.num_sites();
       umag << mu;
       umag2 << mu * mu;
       smag2 << ms * ms;
     }
     
     if (mcs <= opt.therm / 2) {
-      if (wcount > 0) wdensity = opt.L / (wlength / wcount);
+      if (wcount > 0) wdensity = lattice.num_bonds() / (wlength / wcount);
       if (mcs % (opt.therm / 8) == 0) {
         wcount /= 2;
         wlength /= 2;
       }
     }
     if (mcs == opt.therm / 2)
-      std::cout << "Info: average number worms per MCS is reset from " << opt.L << " to "
+      std::cout << "Info: average number worms per MCS is reset from " << lattice.num_bonds() << " to "
                 << wdensity << "\n\n";
   }
 
