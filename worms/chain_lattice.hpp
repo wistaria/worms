@@ -15,6 +15,7 @@
 class chain_lattice {
 public:
   chain_lattice(unsigned int L) : length_(L) {}
+  unsigned int coordination_num() const { return 2; }
   unsigned int num_sites() const { return length_; }
   unsigned int num_bonds() const { return num_sites(); }
   unsigned int source(unsigned int b) const { return b; }
