@@ -22,8 +22,8 @@ public:
   template<typename WEIGHT>
   void init_table(WEIGHT const& w) {
     weights_.clear();
-    weights_.resize(w.size());
-    for (int s = 0; s < w.size(); ++s) {
+    weights_.resize(w.num_configurations());
+    for (int s = 0; s < w.num_configurations(); ++s) {
       weights_[s].resize(4);
       for (int g = 0; g < 4; ++g) weights_[s][g] = w[s ^ (1<<g)];
     }

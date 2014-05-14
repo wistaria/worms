@@ -33,6 +33,8 @@ template<unsigned int NUM_LEGS, unsigned int DIM> struct spin_state;
 
 template<>
 struct spin_state<2, 2> {
+  static const int num_configurations = 16;
+  static const int num_candidates = 4;
   static int p2c(int p, int l) { return (p >> l) & 1; }
   static int p2u(int p, int d) { return (p >> (2 * d)) & 3; }
   static int c2u(int c0, int c1) { return (c0 | (c1 << 1)); }
@@ -40,6 +42,7 @@ struct spin_state<2, 2> {
     return (c0 | (c1 << 1) | (c2 << 2) | (c3 << 3));
   }
   static int u2p(int u0, int u1) { return (u0 | (u1 << 2)); }
+  static int candidate(int p, int g) { return p ^ (1<<g); }
   static int maskp(int l) { return (1 << l); }
   static bool is_diagonal(int p) { return p2u(p, 0) == p2u(p, 1); }
 };
