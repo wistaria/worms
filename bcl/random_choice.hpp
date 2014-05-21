@@ -2,7 +2,7 @@
 *
 * BCL: Balance Condition Library
 *
-* Copyright (C) 2006-2012 by Synge Todo <wistaria@comp-phys.org>
+* Copyright (C) 2006-2014 by Synge Todo <wistaria@comp-phys.org>
 *
 * Distributed under the Boost Software License, Version 1.0. (See accompanying
 * file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -205,8 +205,6 @@ inline void fill_walker1977(WVEC const& weights,
     b[minpos] = 0;
   }
 }
-
-} // end namespace detail
 
 //
 // double-based Walker algorithm
@@ -422,10 +420,12 @@ private:
   std::vector<RealType> accum_;
 };
 
+} // end namespace detail
+
 template<typename RNG>
-class random_choice : public random_choice_walker<typename RNG::result_type, unsigned int, double> {
+class random_choice : public detail::random_choice_walker<typename RNG::result_type, unsigned int, double> {
 private:
-  typedef random_choice_walker<typename RNG::result_type, unsigned int, double> base_type;
+  typedef detail::random_choice_walker<typename RNG::result_type, unsigned int, double> base_type;
 public:
   random_choice() : base_type() {}
   template<class CONT>
@@ -433,9 +433,9 @@ public:
 };
 
 template<>
-class random_choice<double> : public random_choice_walker<double, unsigned int, double> {
+class random_choice<double> : public detail::random_choice_walker<double, unsigned int, double> {
 private:
-  typedef random_choice_walker<double, unsigned int, double> base_type;
+  typedef detail::random_choice_walker<double, unsigned int, double> base_type;
 public:
   random_choice() : base_type() {}
   template<class CONT>
@@ -443,9 +443,9 @@ public:
 };
 
 template<>
-class random_choice<unsigned int> : public random_choice_walker<unsigned int, unsigned int, double> {
+class random_choice<unsigned int> : public detail::random_choice_walker<unsigned int, unsigned int, double> {
 private:
-  typedef random_choice_walker<unsigned int, unsigned int, double> base_type;
+  typedef detail::random_choice_walker<unsigned int, unsigned int, double> base_type;
 public:
   random_choice() : base_type() {}
   template<class CONT>
