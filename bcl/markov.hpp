@@ -13,7 +13,7 @@
 #ifndef BCL_MARKOV_HPP
 #define BCL_MARKOV_HPP
 
-#include <bcl/random_choice.hpp>
+#include "random_choice.hpp"
 
 namespace bcl {
 

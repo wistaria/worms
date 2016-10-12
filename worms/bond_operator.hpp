@@ -14,6 +14,7 @@
 
 #include "spin_state.hpp"
 
+template <int Spin>
 class bond_operator {
 public:
   bond_operator() {}
@@ -26,9 +27,14 @@ public:
   int stp1() const { return stp1_; }
   double time() const { return time_; }
   int state() const { return state_; }
-  bool is_diagonal() const { return (spin_state::p2u(state_, 0) == spin_state::p2u(state_, 1)); }
+  bool is_diagonal() const { return (spin_state::p2u<Spin>(state_, 0) == spin_state::p2u<Spin>(state_, 1)); }
   bool is_offdiagonal() const { return !is_diagonal(); }
-  void flip_state(int leg) { state_ ^= spin_state::maskp(leg); }
+  // void flip_state(int leg) { state_ ^= spin_state::maskp<Spin>(leg); }
+  void flip_state(int leg, int raise_lower) {
+    if (raise_lower) spin_state::raise<Spin>(leg, &state_);
+    else spin_state::lower<Spin>(leg, &state_);
+  } 
+  
   void print(std::ostream& os) const {
     os << s0_ << ' ' << s1_ << ' ' << stp0_ << ' ' << stp1_ << ' ' << state_ << ' ' << time_;
   }
@@ -39,8 +45,29 @@ private:
   double time_;
 };
 
-std::ostream& operator<<(std::ostream& os, bond_operator const& op) {
+template <int Spin>
+std::ostream& operator<<(std::ostream& os, bond_operator<Spin> const& op) {
   op.print(os);
+  return os;
+}
+
+template <int Spin>
+std::ostream& operator<<(std::ostream& os, std::vector<bond_operator<Spin> >& ops) {
+  for (typename std::vector<bond_operator<Spin> >::iterator opi = ops.begin();
+         opi != ops.end(); ++opi)
+    {
+      os << "(" << *opi << ")";
+    }
+  return os;
+}
+
+std::ostream& operator<<(std::ostream& os, std::vector<int>& spins) {
+  os << "[";
+  for (std::vector<int>::iterator opi = spins.begin();
+         opi != spins.end(); ++opi)
+    os << *opi << " ";
+  os << "]";
+       
   return os;
 }
   

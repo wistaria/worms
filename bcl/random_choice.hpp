@@ -55,16 +55,20 @@ inline void fill_ft2009(WVEC const& weights, std::vector<std::pair<CutoffType, I
   typename boost::enable_if<boost::is_integral<IndexType> >::type* = 0) {
   
   if (weights.size() == 0)
-    boost::throw_exception(std::invalid_argument("fill_ft2009"));
+    boost::throw_exception(std::invalid_argument("fill_ft2009 a"));
   std::size_t n = weights.size();
   CutoffType norm = CutoffType(0);
+  // std::cout << norm << std::endl;
+   
   BOOST_FOREACH(CutoffType w, weights) {
+    // std::cout << w << " ";
     if (w < CutoffType(0))
-      boost::throw_exception(std::invalid_argument("fill_ft2009"));
+      boost::throw_exception(std::invalid_argument("fill_ft2009 b "));
     norm += w;
   }
+  // std::cout << std::endl << "hello " << norm  << " " << n<< std::endl;
   if (norm <= CutoffType(0))
-    boost::throw_exception(std::invalid_argument("fill_ft2009"));
+    boost::throw_exception(std::invalid_argument("fill_ft2009 c"));
   norm = n / norm;
 
   // Initialize arrays.  We will reorder the elements in `array', so
@@ -227,7 +231,9 @@ public:
 
   template<class Engine>
   result_type operator()(Engine& eng) const {
-    result_type x = result_type(RealType(size()) * eng());
+    double tmp = eng();
+    result_type x = result_type(RealType(size()) * tmp);
+    // std::cout << x << " " <<  cutoff(x) << " " << alias(x) << std::endl; 
     return (eng() < cutoff(x)) ? x : alias(x);
   }
 
