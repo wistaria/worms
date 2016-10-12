@@ -16,12 +16,13 @@
 #include "spacetime_point.hpp"
 #include <boost/tuple/tuple.hpp>
 
-inline void append_operator(int s0, int s1, int p, double t, std::vector<bond_operator>& operators,
+template <int Spin>
+inline void append_operator(int s0, int s1, int p, double t, std::vector<bond_operator<Spin> >& operators,
                      std::vector<spacetime_point>& stpoints) {
   int bindex = operators.size();
   int s0index = stpoints.size();
   int s1index = s0index + 1;
-  operators.push_back(bond_operator(s0, s1, s0index, s1index, p, t));
+  operators.push_back(bond_operator<Spin>(s0, s1, s0index, s1index, p, t));
   stpoints.push_back(spacetime_point(stpoints[s0].prev(), s0, bindex, 0));
   stpoints[stpoints[s0].prev()].set_next(s0index);
   stpoints[s0].set_prev(s0index);
@@ -30,8 +31,9 @@ inline void append_operator(int s0, int s1, int p, double t, std::vector<bond_op
   stpoints[s1].set_prev(s1index);
 }
 
-inline void append_operator(bond_operator const& bop, std::vector<bond_operator>& operators,
-                     std::vector<spacetime_point>& stpoints) {
+template <int Spin>
+inline void append_operator(bond_operator<Spin> const& bop, std::vector<bond_operator<Spin> >& operators,
+			    std::vector<spacetime_point>& stpoints) {
   append_operator(bop.site0(), bop.site1(), bop.state(), bop.time(), operators, stpoints);
 }
 
@@ -53,32 +55,32 @@ inline void check(bool test, std::string const& message) {
 }
 #endif
   
-template<typename LATTICE>
+template<typename LATTICE, int Spin>
 void check_operators(LATTICE const& lattice, std::vector<int> const& spins,
-                     std::vector<bond_operator> const& operators,
+                     std::vector<bond_operator<Spin> > const& operators,
                      std::vector<spacetime_point> const& stpoints) {
 #ifdef CHECK_OPERATORS
   check(lattice.num_sites() == spins.size(), "lattice.num_sites() == spins.size()");
   int n = lattice.num_sites();
   std::vector<int> current(spins);
   for (int b = 0; b < operators.size(); ++b) {
-    bond_operator bop = operators[b];
+    bond_operator<Spin> bop = operators[b];
     int s0 = bop.site0();
     int s1 = bop.site1();
     check(s0 < n, "s0 < n");
     check(s1 < n, "s1 < n");
-    check(current[s0] == spin_state::p2c(bop.state(), 0), "current[s0] == spin_state::p2c(bop.state(), 0)");
-    check(current[s1] == spin_state::p2c(bop.state(), 1), "current[s1] == spin_state::p2c(bop.state(), 1)");
+    check(current[s0] == spin_state::p2c<Spin>(bop.state(), 0), "current[s0] == spin_state::p2c(bop.state(), 0)");
+    check(current[s1] == spin_state::p2c<Spin>(bop.state(), 1), "current[s1] == spin_state::p2c(bop.state(), 1)");
     check(bop.state() >= 0, "bop.state() >= 0");
-    check(bop.state() < 16, "bop.state() < 16");
-    current[s0] = spin_state::p2c(bop.state(), 2);
-    current[s1] = spin_state::p2c(bop.state(), 3);
+    check(bop.state() < operatorsize<Spin>::val, "bop.state() < 16");
+    current[s0] = spin_state::p2c<Spin>(bop.state(), 2);
+    current[s1] = spin_state::p2c<Spin>(bop.state(), 3);
   }
   for (int s = 0; s < n; ++s)
     check(spins[s] == current[s], "spins[s] == current[s]");
 
   for (int b = 0; b < operators.size(); ++b) {
-    bond_operator bop = operators[b];
+    bond_operator<Spin> bop = operators[b];
     int s0 = bop.site0();
     int s1 = bop.site1();
     int stp0 = bop.stp0();
@@ -100,7 +102,7 @@ void check_operators(LATTICE const& lattice, std::vector<int> const& spins,
     check(stpoints[stpoints[p].prev()].next() == p, "stpoints[stpoints[p].prev()].next() == p");
     if (stpoints[p].at_operator()) {
       int b = stpoints[p].bond_operator();
-      bond_operator bop = operators[b];
+      bond_operator<Spin> bop = operators[b];
       int s0 = bop.site0();
       int s1 = bop.site1();
       int stp0 = bop.stp0();

@@ -19,14 +19,16 @@
 #include "worms/heisenberg_operator.hpp"
 #include "worms/outgoing_weight.hpp"
 
+#define SPIN 2
+
 BOOST_AUTO_TEST_CASE(test_outgoing_weight) {
   for (double h = 0; h < 3; h += 0.1) {
-    heisenberg_operator op(h, 2);
-    weight w(op);
+    heisenberg_operator<SPIN> op(h, 2);
+    weight<SPIN> w(op);
     outgoing_weight ow(w);
     std::cerr << "magnetic field = " << h << std::endl
               << "energy offset = " << w.offset() << std::endl;
-    for (int p = 0; p < 16; ++p) {
+    for (int p = 0; p < operatorsize<SPIN>::val; ++p) {
       for (int g = 0; g < 4; ++g) {
         std::cerr << "  " << p << ' ' << g << ' ' << ow[p][g] << std::endl;
         BOOST_CHECK((ow[p][g] >= 0));

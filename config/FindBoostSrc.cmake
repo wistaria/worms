@@ -1,12 +1,14 @@
 # - FindBoostSrc.cmake
 
+set(Boost_DEBUG 1)
+
 if (NOT Boost_ROOT_DIR)
   if(BOOST_ROOT)
     find_path(Boost_ROOT_DIR "libs/program_options/src/cmdline.cpp" ${BOOST_ROOT})
   else(BOOST_ROOT)
     set(DIR0
       ${PROJECT_SOURCE_DIR}/..
-      $ENV{HOME} $ENV{HOME}/src $ENV{HOME}/ALPS/src /usr/local /usr/local/src /opt /opt/local /opt/alps
+      $ENV{HOME} $ENV{HOME}/src $ENV{HOME}/ALPS/src /usr/local /usr/local/src /opt /opt/local /opt/alps /opt/local/include
       "$ENV{HOMEDRIVE}/Program Files"
       "$ENV{HOMEDRIVE}$ENV{HOMEPATH}"
       "$ENV{HOMEDRIVE}$ENV{HOMEPATH}/src"

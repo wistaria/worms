@@ -16,6 +16,7 @@
 #include <vector>
 #include "spin_state.hpp"
 
+template <int Spin>
 class weight {
 public:
   template<typename OP>
@@ -26,14 +27,15 @@ public:
   void init_table(OP const& op, double extra_offset = 0) {
     offset_ = op.max_diagonal() + extra_offset;
     max_diagonal_weight_ = 0;
-    weights_.resize(16);
-    for (int p = 0; p < 16; ++p) {
-      if (spin_state::p2c(p, 0) == spin_state::p2c(p, 2) && 
-          spin_state::p2c(p, 1) == spin_state::p2c(p, 3)) {
-        weights_[p] = -(op(p) - offset_); // diagonal
-        max_diagonal_weight_ = std::max(max_diagonal_weight_, weights_[p]);
-      } else {
-        weights_[p] = -op(p); // off-diagonal
+    weights_.resize(operatorsize<Spin>::val);
+    for (int p = 0; p < operatorsize<Spin>::val; ++p) {
+      if (spin_state::valid_p<Spin>(p)){
+	if (spin_state::p2u<Spin>(p, 0) == spin_state::p2u<Spin>(p, 1)) {
+	  weights_[p] = -(op(p) - offset_); // diagonal
+	  max_diagonal_weight_ = std::max(max_diagonal_weight_, weights_[p]);
+	} else {
+	  weights_[p] = -op(p); // off-diagonal
+	}
       }
     }
   }
