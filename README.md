@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/wistaria/worms.svg?branch=master)](https://travis-ci.com/wistaria/worms)
+
 worms: a simple worm code
 ==========================
 
@@ -15,7 +17,7 @@ antiferromagnetic Heisenberg chain in a longitudinal magnetic field.
 
     mkdir worms-build
     cd worms-build
-    cmake [absolute-path-to-worms-source-directory]
+    cmake [path-to-worms-source-directory]
     make
     make test
 
