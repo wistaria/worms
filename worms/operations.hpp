@@ -2,7 +2,7 @@
 *
 * worms: a simple worm code
 *
-* Copyright (C) 2013 by Synge Todo <wistaria@comp-phys.org>
+* Copyright (C) 2013-2018 by Synge Todo <https://github.com/wistaria>
 *
 * Distributed under the Boost Software License, Version 1.0. (See accompanying
 * file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -12,9 +12,9 @@
 #ifndef OPERATIONS_HPP
 #define OPERATIONS_HPP
 
+#include <boost/tuple/tuple.hpp>
 #include "bond_operator.hpp"
 #include "spacetime_point.hpp"
-#include <boost/tuple/tuple.hpp>
 
 inline void append_operator(int s0, int s1, int p, double t, std::vector<bond_operator>& operators,
                      std::vector<spacetime_point>& stpoints) {
@@ -58,6 +58,7 @@ void check_operators(LATTICE const& lattice, std::vector<int> const& spins,
                      std::vector<bond_operator> const& operators,
                      std::vector<spacetime_point> const& stpoints) {
 #ifdef CHECK_OPERATORS
+  typedef spin_state<2, 2> spin_state_t;
   check(lattice.num_sites() == spins.size(), "lattice.num_sites() == spins.size()");
   int n = lattice.num_sites();
   std::vector<int> current(spins);
@@ -67,12 +68,14 @@ void check_operators(LATTICE const& lattice, std::vector<int> const& spins,
     int s1 = bop.site1();
     check(s0 < n, "s0 < n");
     check(s1 < n, "s1 < n");
-    check(current[s0] == spin_state::p2c(bop.state(), 0), "current[s0] == spin_state::p2c(bop.state(), 0)");
-    check(current[s1] == spin_state::p2c(bop.state(), 1), "current[s1] == spin_state::p2c(bop.state(), 1)");
+    check(current[s0] == spin_state_t::p2c(bop.state(), 0),
+          "current[s0] == spin_state_t::p2c(bop.state(), 0)");
+    check(current[s1] == spin_state_t::p2c(bop.state(), 1),
+          "current[s1] == spin_state_t::p2c(bop.state(), 1)");
     check(bop.state() >= 0, "bop.state() >= 0");
     check(bop.state() < 16, "bop.state() < 16");
-    current[s0] = spin_state::p2c(bop.state(), 2);
-    current[s1] = spin_state::p2c(bop.state(), 3);
+    current[s0] = spin_state_t::p2c(bop.state(), 2);
+    current[s1] = spin_state_t::p2c(bop.state(), 3);
   }
   for (int s = 0; s < n; ++s)
     check(spins[s] == current[s], "spins[s] == current[s]");
@@ -94,8 +97,6 @@ void check_operators(LATTICE const& lattice, std::vector<int> const& spins,
     check(stpoints[s].at_origin(), "stpoints[s].at_origin()");
   }
   for (int p = 0; p < stpoints.size(); ++p) {
-    //// std::cerr << p << ' ' << stpoints[p].next() << ' ' << stpoints[stpoints[p].next()].prev() << std::endl;
-    //// std::cerr << p << ' ' << stpoints[p].prev() << ' ' << stpoints[stpoints[p].prev()].next() << std::endl;
     check(stpoints[stpoints[p].next()].prev() == p, "stpoints[stpoints[p].next()].prev() == p");
     check(stpoints[stpoints[p].prev()].next() == p, "stpoints[stpoints[p].prev()].next() == p");
     if (stpoints[p].at_operator()) {

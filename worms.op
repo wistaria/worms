@@ -3,9 +3,9 @@ Temperature            = 1
 Magnetic Field         = 0
 MCS for Thermalization = 8192
 MCS for Measurement    = 65536
-Info: average number worms per MCS is reset from 16 to 10.4625
+Info: average number worms per MCS is reset from 16 to 10.5207
 
-Energy Density            = -0.204671 +- 0.000777043
-Uniform Magnetization     = -0.000603676 +- 0.000360823
-Uniform Magnetization^2   = 0.00853258 +- 4.74278e-05
-Staggered Magnetization^2 = 0.0265895 +- 0.00013606
+Energy Density            = -0.205975 +- 0.000784256
+Uniform Magnetization     = 0.000299454 +- 0.000360507
+Uniform Magnetization^2   = 0.00851738 +- 4.71883e-05
+Staggered Magnetization^2 = 0.0267564 +- 0.000137489

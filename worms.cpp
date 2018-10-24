@@ -2,7 +2,7 @@
 *
 * worms: a simple worm code
 *
-* Copyright (C) 2013-2014 by Synge Todo <wistaria@comp-phys.org>
+* Copyright (C) 2013-2018 by Synge Todo <https://github.com/wistaria>
 *
 * Distributed under the Boost Software License, Version 1.0. (See accompanying
 * file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -13,6 +13,13 @@
 # define CHECK_OPERATORS 1
 #endif
 
+#include <vector>
+#include <boost/random.hpp>
+#include <boost/timer.hpp>
+#include <boost/tuple/tuple.hpp>
+
+#include <bcl.hpp>
+
 #include "options.hpp"
 #include "worms/version.hpp"
 #include "worms/chain_lattice.hpp"
@@ -22,16 +29,9 @@
 #include "worms/weight.hpp"
 #include "worms/outgoing_weight.hpp"
 
-#include <bcl.hpp>
-
-#include <vector>
-#include <boost/random.hpp>
-#include <boost/timer.hpp>
-#include <boost/tuple/tuple.hpp>
-
 int main(int argc, char* argv[]) {
   std::cerr << "worms: a simple worm code (release " WORMS_VERSION ")\n"
-            << "  Copyright (C) 2013-2014 by Synge Todo <wistaria@comp-phys.org>\n"
+            << "  Copyright (C) 2013-" WORMS_YEAR << " by Synge Todo\n"
             << "  " WORMS_URL "\n\n";
   options opt(argc, argv, 16, 1.0);
   if (!opt.valid) std::exit(-1);
@@ -87,20 +87,12 @@ int main(int argc, char* argv[]) {
   double wlength = 0;
   
   // temporaries
-  std::vector<double> times;
   std::vector<int> current(lattice.num_sites());
 
   boost::timer tm;
   for (int mcs = 0; mcs < (opt.therm + opt.sweeps); ++mcs) {
     // diagonal update
     double pstart = wdensity / (beta * lattice.num_bonds() * lambda + wdensity);
-    expdist_t expdist(beta * lattice.num_bonds() * lambda + wdensity);
-    times.resize(0);
-    double t = 0;
-    while (t < 1) {
-      t += expdist(random01);
-      times.push_back(t);
-    } // a sentinel (t >= 1) will be appended
     std::swap(operators, operators_p);
     operators.resize(0);
     operators_p.push_back(bond_operator(0, 0, 0, 0, 0, 1)); // sentinel
@@ -108,15 +100,16 @@ int main(int argc, char* argv[]) {
     stpoints.resize(0);
     for (int s = 0; s < lattice.num_sites(); ++s) stpoints.push_back(spacetime_point::origin(s));
     wstart.resize(0);
+    expdist_t expdist(beta * lattice.num_bonds() * lambda + wdensity);
+    double t = expdist(random01);
     check_operators(lattice, spins, operators, stpoints);
-    std::vector<double>::iterator tmi = times.begin();
     for (std::vector<bond_operator>::iterator opi = operators_p.begin();
          opi != operators_p.end();) {
-      if (*tmi < opi->time()) {
+      if (t < opi->time()) {
         if (random01() < pstart) {
           // insert worm starting point
           int s = static_cast<int>(lattice.num_sites() * random01());
-          append_wstart(s, *tmi, stpoints, wstart);
+          append_wstart(s, t, stpoints, wstart);
         } else {
           // insert diagonal operator
           int b = static_cast<int>(lattice.num_bonds() * random01());
@@ -124,9 +117,9 @@ int main(int argc, char* argv[]) {
           int s1 = lattice.target(b);
           int u = spin_state_t::c2u(current[s0], current[s1]);
           if (random01() < accept[u])
-            append_operator(s0, s1, spin_state_t::u2p(u, u), *tmi, operators, stpoints);
+            append_operator(s0, s1, spin_state_t::u2p(u, u), t, operators, stpoints);
         }
-        ++tmi;
+        t += expdist(random01);
       } else {
         if (opi->is_offdiagonal()) {
           // keep offdiagonal operator
@@ -206,8 +199,8 @@ int main(int argc, char* argv[]) {
       }
     }
     if (mcs == opt.therm / 2)
-      std::cout << "Info: average number worms per MCS is reset from " << lattice.num_bonds() << " to "
-                << wdensity << "\n\n";
+      std::cout << "Info: average number worms per MCS is reset from " << lattice.num_bonds()
+                << " to " << wdensity << "\n\n";
   }
 
   double elapsed = tm.elapsed();
