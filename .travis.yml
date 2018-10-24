@@ -3,7 +3,7 @@ language: cpp
 addons:
   apt:
     packages:
-      - libboost1.58-dev
+      - libboost-dev
 
 install: true
 
