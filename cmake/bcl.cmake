@@ -5,5 +5,5 @@ option(BCL_BUILD_EXAMPLES OFF)
 include(FetchContent)
 FetchContent_Declare(
   bcl
-  GIT_REPOSITORY git@github.com:cmsi/bcl.git
+  GIT_REPOSITORY https://github.com/cmsi/bcl.git
 )

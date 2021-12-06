@@ -5,5 +5,5 @@ option(STANDARDS_BUILD_EXAMPLES OFF)
 include(FetchContent)
 FetchContent_Declare(
   standards
-  GIT_REPOSITORY git@github.com:todo-group/standards.git
+  GIT_REPOSITORY https://github.com/todo-group/standards.git
 )
