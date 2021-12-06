@@ -1,17 +1,9 @@
-##############################################################################
-#
-# worms: a simple worm code
-#
-# Copyright (C) 2013-2014 by Synge Todo <wistaria@comp-phys.org>
-#
-# Distributed under the Boost Software License, Version 1.0. (See accompanying
-# file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
-#
-##############################################################################
+set(PROGS outgoing_weight weight)
 
-set(TESTS outgoing_weight weight)
-foreach(name ${TESTS})
-  add_executable(${name} ${name}.cpp)
-  add_test(${name} ${name})
+foreach(name ${PROGS})
+  set(target_name test_${name})
+  add_executable(${target_name} ${name}.cpp)
+  set_target_properties(${target_name} PROPERTIES OUTPUT_NAME ${name})
+  target_link_libraries(${target_name} gtest_main)
+  add_test(${target_name} ${name})
 endforeach(name)
-unset(TESTS)

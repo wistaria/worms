@@ -1,16 +1,13 @@
-[![Build Status](https://travis-ci.com/wistaria/worms.svg?branch=master)](https://travis-ci.com/wistaria/worms)
-
 worms: a simple worm code
 ==========================
 
 This is a sample code describing how the non-reversible worm algorithm
 (a.k.a directed-loop algorithm) can be implemented in the continuous
-imaginary time path integral representation.  It calculatetes an S=1/2
+imaginary time path integral representation.  It calculates an S=1/2
 antiferromagnetic Heisenberg chain in a longitudinal magnetic field.
 
 ## Prerequisites
 
- - Boost C++ Libraries - http://www.boost.org
  - CMake - http://www.cmake.org
 
 ## Compilation

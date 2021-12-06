@@ -1,29 +1,35 @@
-/*****************************************************************************
-*
-* worms: a simple worm code
-*
-* Copyright (C) 2013-2018 by Synge Todo <https://github.com/wistaria>
-*
-* Distributed under the Boost Software License, Version 1.0. (See accompanying
-* file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
-*
-*****************************************************************************/
+/*
+   worms: a simple worm code
+
+   Copyright (C) 2013-2021 by Synge Todo <wistaria@phys.s.u-tokyo.ac.jp>
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+*/
 
 #ifndef NDEBUG
 # define CHECK_OPERATORS 1
 #endif
 
+#include <random>
+#include <tuple>
 #include <vector>
-#include <boost/random.hpp>
-#include <boost/timer.hpp>
-#include <boost/tuple/tuple.hpp>
-
+#include <standards/timer.hpp>
 #include <bcl.hpp>
 
 #include "options.hpp"
 #include "worms/version.hpp"
 #include "worms/chain_lattice.hpp"
-//#include "worms/square_lattice.hpp"
+// #include "worms/square_lattice.hpp"
 #include "worms/heisenberg_operator.hpp"
 #include "worms/operations.hpp"
 #include "worms/weight.hpp"
@@ -39,14 +45,14 @@ int main(int argc, char* argv[]) {
 
   // lattice
   chain_lattice lattice(opt.L);
-  //square_lattice lattice(opt.L);
+  // square_lattice lattice(opt.L);
   
   // random number generator
-  typedef boost::mt19937 engine_t;
-  typedef boost::uniform_01<engine_t&> random01_t;
-  typedef boost::exponential_distribution<> expdist_t;
-  engine_t engine(29833u);
-  random01_t random01(engine);
+  typedef std::mt19937 engine_type;
+  typedef std::uniform_real_distribution<> uniform_t;
+  typedef std::exponential_distribution<> expdist_t;
+  engine_type eng(29411);
+  uniform_t uniform;
 
   // observables
   bcl::observable ene; // energy density
@@ -74,13 +80,13 @@ int main(int argc, char* argv[]) {
 
   // table for worm update
   outgoing_weight ogwt(wt);
-  typedef bcl::markov<random01_t> markov_t;
+  typedef bcl::markov<engine_type> markov_t;
   std::vector<markov_t> markov;
   for (int c = 0; c < 16; ++c) markov.push_back(markov_t(bcl::st2010(), ogwt[c]));
 
   // weight for worm insertion
   double wdensity = lattice.num_sites();
-  std::vector<boost::tuple<int, int, double> > wstart;
+  std::vector<std::tuple<int, int, double>> wstart;
 
   // worm statistics
   double wcount = 0;
@@ -89,8 +95,8 @@ int main(int argc, char* argv[]) {
   // temporaries
   std::vector<int> current(lattice.num_sites());
 
-  boost::timer tm;
-  for (int mcs = 0; mcs < (opt.therm + opt.sweeps); ++mcs) {
+  standards::timer tm;
+  for (unsigned int mcs = 0; mcs < (opt.therm + opt.sweeps); ++mcs) {
     // diagonal update
     double pstart = wdensity / (beta * lattice.num_bonds() * lambda + wdensity);
     std::swap(operators, operators_p);
@@ -98,28 +104,28 @@ int main(int argc, char* argv[]) {
     operators_p.push_back(bond_operator(0, 0, 0, 0, 0, 1)); // sentinel
     std::copy(spins.begin(), spins.end(), current.begin());
     stpoints.resize(0);
-    for (int s = 0; s < lattice.num_sites(); ++s) stpoints.push_back(spacetime_point::origin(s));
+    for (unsigned int s = 0; s < lattice.num_sites(); ++s) stpoints.push_back(spacetime_point::origin(s));
     wstart.resize(0);
     expdist_t expdist(beta * lattice.num_bonds() * lambda + wdensity);
-    double t = expdist(random01);
+    double t = expdist(eng);
     check_operators(lattice, spins, operators, stpoints);
     for (std::vector<bond_operator>::iterator opi = operators_p.begin();
          opi != operators_p.end();) {
       if (t < opi->time()) {
-        if (random01() < pstart) {
+        if (uniform(eng) < pstart) {
           // insert worm starting point
-          int s = static_cast<int>(lattice.num_sites() * random01());
+          int s = static_cast<int>(lattice.num_sites() * uniform(eng));
           append_wstart(s, t, stpoints, wstart);
         } else {
           // insert diagonal operator
-          int b = static_cast<int>(lattice.num_bonds() * random01());
+          int b = static_cast<int>(lattice.num_bonds() * uniform(eng));
           int s0 = lattice.source(b);
           int s1 = lattice.target(b);
           int u = spin_state_t::c2u(current[s0], current[s1]);
-          if (random01() < accept[u])
+          if (uniform(eng) < accept[u])
             append_operator(s0, s1, spin_state_t::u2p(u, u), t, operators, stpoints);
         }
-        t += expdist(random01);
+        t += expdist(eng);
       } else {
         if (opi->is_offdiagonal()) {
           // keep offdiagonal operator
@@ -133,15 +139,15 @@ int main(int argc, char* argv[]) {
     check_operators(lattice, spins, operators, stpoints);
 
     // shuffle starting point of worms
-    bcl::random_shuffle(wstart.begin(), wstart.end(), random01);
+    bcl::random_shuffle(wstart.begin(), wstart.end(), eng);
 
     // worm update
-    for (std::vector<boost::tuple<int, int, double> >::iterator wsi = wstart.begin();
+    for (std::vector<std::tuple<int, int, double> >::iterator wsi = wstart.begin();
          wsi != wstart.end(); ++wsi) {
-      int direc = 2 * random01();
+      int direc = 2 * uniform(eng);
       int site, stp;
       double time;
-      boost::tie(site, stp, time) = *wsi;
+      std::tie(site, stp, time) = *wsi;
       int stp_start = stp;
       double time_start = time;
       wcount += 1;
@@ -154,7 +160,7 @@ int main(int argc, char* argv[]) {
           wlength += (direc == 0) ? -time : time;
           int ent = ((direc ^ 1) << 1) | stpoints[stp].leg();
           operators[bop].flip_state(ent);
-          int ext = markov[operators[bop].state()](ent, random01);
+          int ext = markov[operators[bop].state()](ent, eng);
           int leg = ext & 1;
           operators[bop].flip_state(ext);
           direc = (ext >> 1);
@@ -180,7 +186,7 @@ int main(int argc, char* argv[]) {
       ene << (lattice.num_bonds() * wt.offset() - operators.size() / beta) / lattice.num_sites();
       double mu = 0;
       double ms = 0;
-      for (int s = 0; s < lattice.num_sites(); ++s) {
+      for (unsigned int s = 0; s < lattice.num_sites(); ++s) {
         mu += 0.5 - spins[s];
         ms += lattice.phase(s) * (0.5 - spins[s]);
       }

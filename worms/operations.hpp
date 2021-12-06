@@ -1,18 +1,23 @@
-/*****************************************************************************
-*
-* worms: a simple worm code
-*
-* Copyright (C) 2013-2018 by Synge Todo <https://github.com/wistaria>
-*
-* Distributed under the Boost Software License, Version 1.0. (See accompanying
-* file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
-*
-*****************************************************************************/
+/*
+   worms: a simple worm code
 
-#ifndef OPERATIONS_HPP
-#define OPERATIONS_HPP
+   Copyright (C) 2013-2021 by Synge Todo <wistaria@phys.s.u-tokyo.ac.jp>
 
-#include <boost/tuple/tuple.hpp>
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+*/
+
+#pragma once
+
 #include "bond_operator.hpp"
 #include "spacetime_point.hpp"
 
@@ -36,12 +41,12 @@ inline void append_operator(bond_operator const& bop, std::vector<bond_operator>
 }
 
 inline void append_wstart(int s, double t, std::vector<spacetime_point>& stpoints,
-                   std::vector<boost::tuple<int, int, double> >& wstart) {
+                   std::vector<std::tuple<int, int, double> >& wstart) {
   int sindex = stpoints.size();
   stpoints.push_back(spacetime_point::starting(stpoints[s].prev(), s));
   stpoints[stpoints[s].prev()].set_next(sindex);
   stpoints[s].set_prev(sindex);
-  wstart.push_back(boost::make_tuple(s, sindex, t));
+  wstart.push_back(std::make_tuple(s, sindex, t));
 }
 
 #ifdef CHECK_OPERATORS
@@ -116,5 +121,3 @@ void check_operators(LATTICE const& lattice, std::vector<int> const& spins,
   }
 #endif // CHECK_OPERATORS
 }
-
-#endif // OPERATIONS_HPP

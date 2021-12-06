@@ -1,8 +1,25 @@
+/*
+   worms: a simple worm code
+
+   Copyright (C) 2013-2021 by Synge Todo <wistaria@phys.s.u-tokyo.ac.jp>
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+*/
+
 // default & command line options
 
 #include <iostream>
 #include <string>
-#include <boost/lexical_cast.hpp>
 
 struct options {
   unsigned int L;
@@ -20,19 +37,19 @@ struct options {
         switch (argv[i][1]) {
         case 'L' :
           if (++i == argc) { usage(); return; }
-          L = boost::lexical_cast<unsigned int>(argv[i]); break;
+          L = std::atoi(argv[i]); break;
         case 'T' :
           if (++i == argc) { usage(); return; }
-          T = boost::lexical_cast<double>(argv[i]); break;
+          T = std::atof(argv[i]); break;
         case 'H' :
           if (++i == argc) { usage(); return; }
-          H = boost::lexical_cast<double>(argv[i]); break;
+          H = std::atof(argv[i]); break;
         case 'm' :
           if (++i == argc) { usage(); return; }
-          therm = boost::lexical_cast<unsigned int>(argv[i]); break;
+          therm = std::atoi(argv[i]); break;
         case 'n' :
           if (++i == argc) { usage(); return; }
-          sweeps = boost::lexical_cast<unsigned int>(argv[i]); break;
+          sweeps = std::atoi(argv[i]); break;
         case 'h' :
           usage(std::cout); return;
         default :
