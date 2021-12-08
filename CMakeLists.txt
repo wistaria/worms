@@ -5,11 +5,13 @@ include(cmake/postfix.cmake)
 
 include_directories(${worms_SOURCE_DIR})
 
+include(eigen3)
 include(googletest)
 include(standards)
 include(bcl)
+include(lattice)
 FetchContent_MakeAvailable(googletest standards bcl)
-include_directories(${standards_SOURCE_DIR} ${bcl_SOURCE_DIR})
+include_directories(${FetchContent_includes})
 
 add_subdirectory(test)
 

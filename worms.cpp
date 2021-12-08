@@ -25,10 +25,12 @@
 #include <vector>
 #include <standards/timer.hpp>
 #include <bcl.hpp>
+#include <lattice/graph.hpp>
+#include <lattice/coloring.hpp>
 
 #include "options.hpp"
 #include "worms/version.hpp"
-#include "worms/chain_lattice.hpp"
+// #include "worms/chain_lattice.hpp"
 // #include "worms/square_lattice.hpp"
 #include "worms/heisenberg_operator.hpp"
 #include "worms/operations.hpp"
@@ -44,8 +46,12 @@ int main(int argc, char* argv[]) {
   double beta = 1 / opt.T;
 
   // lattice
-  chain_lattice lattice(opt.L);
-  // square_lattice lattice(opt.L);
+  auto lattice = lattice::graph::simple(1, opt.L);
+  auto color = lattice::coloring(lattice);
+  if (color.size() == 0) {
+    std::cerr << "Error: lattice is not bipartite\n";
+    std::exit(-1);
+  }
   
   // random number generator
   typedef std::mt19937 engine_type;
@@ -66,7 +72,7 @@ int main(int argc, char* argv[]) {
   std::vector<spacetime_point> stpoints;
 
   // Hamiltonian operator
-  heisenberg_operator op(opt.H, /* coordination number = */ lattice.coordination_num());
+  heisenberg_operator op(opt.H, /* coordination number = */ lattice.num_neighbors(0)); // assume uniform lattice
   typedef heisenberg_operator::spin_state_t spin_state_t;
   double offset = 0; // >= 0
   weight wt(op, offset);
@@ -188,7 +194,7 @@ int main(int argc, char* argv[]) {
       double ms = 0;
       for (unsigned int s = 0; s < lattice.num_sites(); ++s) {
         mu += 0.5 - spins[s];
-        ms += lattice.phase(s) * (0.5 - spins[s]);
+        ms += (1.0 - 2.0 * color[s]) * (0.5 - spins[s]);
       }
       mu /= lattice.num_sites();
       ms /= lattice.num_sites();
