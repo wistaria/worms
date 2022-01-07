@@ -91,7 +91,8 @@ int main(int argc, char* argv[]) {
   for (int c = 0; c < 16; ++c) markov.push_back(markov_t(bcl::st2010(), ogwt[c]));
 
   // weight for worm insertion
-  double wdensity = lattice.num_sites();
+  double wtarget = lattice.num_bonds();
+  double wdensity = wtarget;
   std::vector<std::tuple<int, int, double>> wstart;
 
   // worm statistics
@@ -204,14 +205,14 @@ int main(int argc, char* argv[]) {
     }
     
     if (mcs <= opt.therm / 2) {
-      if (wcount > 0) wdensity = lattice.num_bonds() / (wlength / wcount);
+      if (wcount > 0) wdensity = wtarget / (wlength / wcount);
       if (mcs % (opt.therm / 8) == 0) {
         wcount /= 2;
         wlength /= 2;
       }
     }
     if (mcs == opt.therm / 2)
-      std::cout << "Info: average number worms per MCS is reset from " << lattice.num_bonds()
+      std::cout << "Info: average number worms per MCS is reset from " << wtarget
                 << " to " << wdensity << "\n\n";
   }
 
